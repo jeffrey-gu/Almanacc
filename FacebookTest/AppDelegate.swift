@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookLogin
+
+// https://medium.com/ios-os-x-development/a-simple-swift-login-implementation-with-facebook-sdk-for-ios-version-4-0-1f313ae814da
+// https://developers.facebook.com/docs/facebook-login/ios/v2.3
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        SDKApplicationDelegate.shared.application(application)
+        
         return true
     }
 
@@ -35,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
