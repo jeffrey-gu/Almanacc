@@ -7,8 +7,10 @@
 //
 
 import UIKit
-import FacebookCore
+//import FacebookCore
 import FacebookLogin
+
+import FBSDKCoreKit
 
 // https://medium.com/ios-os-x-development/a-simple-swift-login-implementation-with-facebook-sdk-for-ios-version-4-0-1f313ae814da
 // https://developers.facebook.com/docs/facebook-login/ios/v2.3
