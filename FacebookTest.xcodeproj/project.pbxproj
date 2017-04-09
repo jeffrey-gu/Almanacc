@@ -15,6 +15,7 @@
 		24C024181E907F8D003147DE /* FacebookTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024171E907F8D003147DE /* FacebookTestTests.swift */; };
 		24C024231E907F8D003147DE /* FacebookTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024221E907F8D003147DE /* FacebookTestUITests.swift */; };
 		24C024311E908A9F003147DE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C024301E908A9F003147DE /* FBSDKLoginKit.framework */; };
+		24C024331E9AE28D003147DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024321E9AE28D003147DE /* ProfileViewController.swift */; };
 		99333D5B06CAF8E7CAD6C96F /* Pods_FacebookTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FB76A60D549D4F33EA74CD /* Pods_FacebookTestUITests.framework */; };
 		A60521BDFC4F5AA408869FE0 /* Pods_FacebookTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F886EA5BC93C184DE77054 /* Pods_FacebookTest.framework */; };
 		FF94B72E10740DA8E96EF82B /* Pods_FacebookTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D9A591D0331859BD7CBE37 /* Pods_FacebookTestTests.framework */; };
@@ -52,6 +53,7 @@
 		24C024221E907F8D003147DE /* FacebookTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookTestUITests.swift; sourceTree = "<group>"; };
 		24C024241E907F8D003147DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C024301E908A9F003147DE /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		24C024321E9AE28D003147DE /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4196C1F1671672261BD11FF9 /* Pods-FacebookTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FacebookTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FacebookTestTests/Pods-FacebookTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4DF41144A2F58FE3CD1A24CF /* Pods-FacebookTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FacebookTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FacebookTestTests/Pods-FacebookTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		56FB76A60D549D4F33EA74CD /* Pods_FacebookTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FacebookTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 				24C024091E907F8D003147DE /* Assets.xcassets */,
 				24C0240B1E907F8D003147DE /* LaunchScreen.storyboard */,
 				24C0240E1E907F8D003147DE /* Info.plist */,
+				24C024321E9AE28D003147DE /* ProfileViewController.swift */,
 			);
 			path = FacebookTest;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C024331E9AE28D003147DE /* ProfileViewController.swift in Sources */,
 				24C024051E907F8D003147DE /* ViewController.swift in Sources */,
 				24C024031E907F8D003147DE /* AppDelegate.swift in Sources */,
 			);
