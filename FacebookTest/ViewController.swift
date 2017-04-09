@@ -11,7 +11,7 @@ import FacebookLogin
 import FacebookCore
 
 class ViewController: UIViewController, LoginButtonDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -43,11 +43,17 @@ class ViewController: UIViewController, LoginButtonDelegate {
             print("Cancelled")
         case .success(let grantedPermissions, let declinedPermissions, let accessToken):
             print("Logged In")
+            facebookLogin()
+            
+            // push tab view controller
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+//            guard let controller = storyboard?.instantiateViewController(withIdentifier: ProfileViewController.storyboardIdentifier) as? ProfileViewController else { fatalError("Unable to instantiate an ProfileViewController from the storyboard") }
         }
     }
 
     func facebookLogin() {
         if let accessToken = AccessToken.current {
+            print("accessing user info")
             let params = ["fields":"name,email"]
             let graphRequest = GraphRequest(graphPath: "me", parameters: params)
             graphRequest.start { (urlResponse, requestResult) in
