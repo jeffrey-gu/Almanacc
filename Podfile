@@ -6,6 +6,7 @@ target 'FacebookTest' do
   use_frameworks!
 
   # Pods for FacebookTest
+  pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'FacebookCore'
   pod 'FacebookLogin'

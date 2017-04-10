@@ -58,6 +58,7 @@ DEPENDENCIES:
   - FacebookLogin
   - FacebookShare
   - Firebase/Auth
+  - Firebase/Core
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -75,6 +76,6 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
 
-PODFILE CHECKSUM: d1e909c1bb8d838bfbefa19e902f1b65c3a769a0
+PODFILE CHECKSUM: 97432c690f0f0555ac51ed39cdc2560e0a16b1c7
 
 COCOAPODS: 1.2.0
