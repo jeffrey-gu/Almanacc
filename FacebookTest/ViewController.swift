@@ -43,7 +43,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
             print("Cancelled")
         case .success(let grantedPermissions, let declinedPermissions, let accessToken):
             print("Logged In")
-            facebookLogin()
+//            facebookLogin()
             
             // push tab view controller
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
@@ -51,6 +51,8 @@ class ViewController: UIViewController, LoginButtonDelegate {
         }
     }
 
+    
+    // NOT USED: storing into user defaults
     func facebookLogin() {
         if let accessToken = AccessToken.current {
             print("accessing user info")

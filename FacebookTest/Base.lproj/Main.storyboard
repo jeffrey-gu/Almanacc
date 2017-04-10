@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,15 +62,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zfh-Ht-kdo">
-                                <rect key="frame" x="16" y="55" width="240" height="215"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zfh-Ht-kdo">
+                                <rect key="frame" x="16" y="59" width="200" height="200"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XtK-Rl-tQ3">
+                                <rect key="frame" x="42" y="274" width="148" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="XtK-Rl-tQ3" secondAttribute="trailing" constant="169" id="2yC-Dr-gfU"/>
+                            <constraint firstItem="Zfh-Ht-kdo" firstAttribute="top" secondItem="b9a-W2-H7L" secondAttribute="bottom" constant="39" id="Bbl-Pt-5Ak"/>
+                            <constraint firstItem="QBR-ye-jZ0" firstAttribute="top" secondItem="Zfh-Ht-kdo" secondAttribute="bottom" constant="359" id="Hw0-Dz-AfS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zfh-Ht-kdo" secondAttribute="trailing" constant="143" id="d6E-9R-iyR"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Zfh-Ht-kdo" secondAttribute="leading" id="dga-7p-cJf"/>
+                            <constraint firstItem="XtK-Rl-tQ3" firstAttribute="leading" secondItem="hbj-jM-as5" secondAttribute="leadingMargin" constant="26" id="svd-Z5-DVZ"/>
+                            <constraint firstItem="XtK-Rl-tQ3" firstAttribute="top" secondItem="Zfh-Ht-kdo" secondAttribute="bottom" constant="15" id="u1l-Lf-UQf"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="5g8-A6-0ks"/>
                     <connections>
+                        <outlet property="nameField" destination="XtK-Rl-tQ3" id="rUr-iu-W4f"/>
                         <outlet property="profileView" destination="Zfh-Ht-kdo" id="KAS-fr-GbC"/>
                     </connections>
                 </viewController>
