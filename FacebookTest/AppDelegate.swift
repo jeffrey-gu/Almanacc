@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
     
+    // lol what is this for anymore (isn't login handled on the view controller now:
     let facebookReadPermissions = ["public_profile", "email", "user_about_me", "user_friends", "name", "user_hometown", "user_location", "user_education_history", "user_work_history"]
     //Some other options: "user_about_me", "user_birthday", "user_hometown", "user_likes", "user_interests", "user_photos", "friends_photos", "friends_hometown", "friends_location", "friends_education_history"
     

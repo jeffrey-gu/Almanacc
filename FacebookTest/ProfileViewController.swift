@@ -18,6 +18,9 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileView: UIImageView!
     @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var educationField: UITextField!
+    @IBOutlet weak var workField: UITextField!
+    @IBOutlet weak var locationField: UITextField!
     
     static let storyboardIdentifier = "ProfileViewController"
     
@@ -75,7 +78,7 @@ class ProfileViewController: UIViewController {
     }
     
     func getProfileInfo() {
-        let params = ["fields":"name,email,about,education,hometown,location,work"]
+        let params = ["fields":"name,email,about,education,location,work"]
         let graphRequest = GraphRequest(graphPath: "me", parameters: params)
         graphRequest.start { (urlResponse, requestResult) in
             switch requestResult {
@@ -85,6 +88,14 @@ class ProfileViewController: UIViewController {
                 if let responseDictionary = graphResponse.dictionaryValue {
                     dump(responseDictionary)
                     self.nameField.text = responseDictionary["name"] as? String ?? "Mr. Incredible"
+                    
+                    let educationList = responseDictionary["education"] as? [Any] ?? [Any]()
+                    
+                    //TODO: check for length of array; if > 1, pick latest one for most recent alma mater?
+                    let schoolDict = educationList[educationList.count-1] as? [String:Any] ?? [String:Any]()
+//                    self.educationField.text = responseDictionary["education"] as? String ?? "Superhero University"
+                    self.educationField.text = schoolDict["name"] as? String ?? "Superhero University"
+
                 }
             }
         }
