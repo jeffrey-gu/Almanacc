@@ -12,20 +12,32 @@ import FacebookLogin
 import FacebookCore
 import Firebase
 
-let storage = FIRStorage.storage()
+class FirebaseImage{
+    var image:UIImage?
+    init() {
+        // Points to the root reference
+        let storageRef = FIRStorage.storage().reference()
+        
+        // Points to "images"
+        let imagesRef = storageRef.child("images")
+        
+        // Points to "images/space.jpg"
+        // Note that you can use variables to create child values
+        let fileName = "guts-boat-dark.jpeg"
+        let spaceRef = imagesRef.child(fileName)
+        
+        // File path is "images/space.jpg"
+        let path = spaceRef.fullPath;
+        
+        // File name is "space.jpg"
+        let name = spaceRef.name;
+        
+        // Points to "images"
+        let images = spaceRef.parent()
 
-// Create a storage reference from our storage service
-let storageRef = storage.reference()
-// Create a child reference
-// imagesRef now points to "images"
-let imagesRef = storageRef.child("images")
-
-// Child references can also take paths delimited by '/'
-// spaceRef now points to "images/space.jpg"
-// imagesRef still points to "images"
-var spaceRef = storageRef.child("images/space.jpg")
-
-// This is equivalent to creating the full reference
-let storagePath = "\(storageRef.bucket)/images/space.jpg"
-spaceRef = storage.reference(forURL: storagePath)
+    }
+    
+    
+    
+}
 

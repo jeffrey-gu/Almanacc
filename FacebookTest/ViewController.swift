@@ -44,6 +44,14 @@ class ViewController: UIViewController, LoginButtonDelegate {
             print("Cancelled")
         case .success(let grantedPermissions, let declinedPermissions, let accessToken):
             print("Logged In")
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                // ...
+                if let error = error {
+                    // ...
+                    return
+                }
+            }
 //            facebookLogin()
             
             // push tab view controller
