@@ -15,7 +15,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let loginButton = LoginButton(readPermissions: [.publicProfile,.email, .userFriends, .custom("user_education_history"), .custom("user_location"), .custom("user_work_history")])
+        let loginButton = LoginButton(readPermissions: [.publicProfile,.email, .userFriends, .custom("user_education_history"), .custom("user_location"), .custom("user_work_history"), .custom("user_hometown")])
         loginButton.frame = CGRect(x: 20, y: view.frame.height - 190, width: view.frame.width - 40, height: 50)
         loginButton.delegate = self
         view.addSubview(loginButton)

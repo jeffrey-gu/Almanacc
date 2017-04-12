@@ -78,7 +78,7 @@ class ProfileViewController: UIViewController {
     }
     
     func getProfileInfo() {
-        let params = ["fields":"name,email,about,education,location,work"]
+        let params = ["fields":"name,email,education,location,work,hometown"]
         let graphRequest = GraphRequest(graphPath: "me", parameters: params)
         graphRequest.start { (urlResponse, requestResult) in
             switch requestResult {
@@ -90,12 +90,13 @@ class ProfileViewController: UIViewController {
                     self.nameField.text = responseDictionary["name"] as? String ?? "Mr. Incredible"
                     
                     let educationList = responseDictionary["education"] as? [Any] ?? [Any]()
-                    
-                    //TODO: check for length of array; if > 1, pick latest one for most recent alma mater?
                     let schoolDict = educationList[educationList.count-1] as? [String:Any] ?? [String:Any]()
-//                    self.educationField.text = responseDictionary["education"] as? String ?? "Superhero University"
-                    self.educationField.text = schoolDict["name"] as? String ?? "Superhero University"
-
+                    let detailedSchoolDict = schoolDict["school"] as? [String:Any] ?? [String:Any]()
+                    self.educationField.text = detailedSchoolDict["name"] as? String ?? "Superhero University"
+                    
+                    let locationDict = responseDictionary["location"] as? [String:Any] ?? [String:Any]()
+                    self.locationField.text = locationDict["name"] as? String ?? "Cityville"
+                    
                 }
             }
         }
