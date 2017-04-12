@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FacebookCore
 
 func findFriends(){
     let params = ["fields": "id, first_name, last_name, middle_name, name, email, picture"]

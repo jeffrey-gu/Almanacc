@@ -17,20 +17,29 @@ import FBSDKCoreKit
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileView: UIImageView!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var educationField: UITextField!
+    @IBOutlet weak var workField: UITextField!
+    @IBOutlet weak var locationField: UITextField!
+    
     static let storyboardIdentifier = "ProfileViewController"
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         
         super.viewDidLoad()
-        profileView.image = #imageLiteral(resourceName: "mr-incredible")
-        getProfilePicture()
-
+        profileView.image = #imageLiteral(resourceName: "mr-incredible")    //default
+        
+        DispatchQueue.main.async {
+            self.getProfileInfo()
+            self.getProfilePicture()
+        }
     }
     
     func getProfilePicture() {
-        let gr2 : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id,picture.width(198).height(198)"])
-        gr2.start(completionHandler: { (connection, result2, error) -> Void in
+        //TODO: refactor this using the FacebookCore module instead of FBSDK?
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id,picture.width(198).height(198)"])
+        graphRequest.start(completionHandler: { (connection, result2, error) -> Void in
             let data = result2 as! [String : AnyObject]
             let _loggedInUserSettingRecordName = data["id"] as? String // (forKey: "id") as? String
             let profilePictureURLStr = (data["picture"]!["data"]!! as! [String : AnyObject])["url"]
@@ -43,35 +52,53 @@ class ProfileViewController: UIViewController {
                 let url = NSURL(string: urlPath as! String)
                 let request = URLRequest(url: url as! URL)
                 
-//                let task = URLSession.shared().dataTask(with: request as URLRequest) {
-                
                 let downloadPicTask = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
                     // The download has finished.
                     if let e = error {
                         print("Error downloading cat picture: \(e)")
                     } else {
-                        // No errors found.
-                        // It would be weird if we didn't have a response, so check for that too.
+                        // No errors found, check HTTP response
                         if let res = response as? HTTPURLResponse {
                             print("Downloaded profile picture with response code \(res.statusCode)")
                             if let imageData = data {
-                                // Finally convert that Data into an image and do what you wish with it.
+                                // Convert Data into image and set profile
                                 let image = UIImage(data: imageData)
-                                // Do something with your image.
                                 self.profileView.image = image
                             } else {
                                 print("Couldn't get image: Image is nil")
                             }
                         } else {
-                            print("Couldn't get response code for some reason")
+                            print("Couldn't get HTTP response")
                         }
                     }
                 }
                 downloadPicTask.resume()
             }
-        /////gr2 completion//////
         })
     }
     
-    
+    func getProfileInfo() {
+        let params = ["fields":"name,email,education,location,work,hometown"]
+        let graphRequest = GraphRequest(graphPath: "me", parameters: params)
+        graphRequest.start { (urlResponse, requestResult) in
+            switch requestResult {
+            case .failed(let error):
+                print(error)
+            case .success(let graphResponse):
+                if let responseDictionary = graphResponse.dictionaryValue {
+                    dump(responseDictionary)
+                    self.nameField.text = responseDictionary["name"] as? String ?? "Mr. Incredible"
+                    
+                    let educationList = responseDictionary["education"] as? [Any] ?? [Any]()
+                    let schoolDict = educationList[educationList.count-1] as? [String:Any] ?? [String:Any]()
+                    let detailedSchoolDict = schoolDict["school"] as? [String:Any] ?? [String:Any]()
+                    self.educationField.text = detailedSchoolDict["name"] as? String ?? "Superhero University"
+                    
+                    let locationDict = responseDictionary["location"] as? [String:Any] ?? [String:Any]()
+                    self.locationField.text = locationDict["name"] as? String ?? "Cityville"
+                    
+                }
+            }
+        }
+    }
 }

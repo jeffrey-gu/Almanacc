@@ -16,7 +16,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let loginButton = LoginButton(readPermissions: [.publicProfile,.email, .userFriends])
+        let loginButton = LoginButton(readPermissions: [.publicProfile,.email, .userFriends, .custom("user_education_history"), .custom("user_location"), .custom("user_work_history"), .custom("user_hometown")])
         loginButton.frame = CGRect(x: 20, y: view.frame.height - 190, width: view.frame.width - 40, height: 50)
         loginButton.delegate = self
         view.addSubview(loginButton)
@@ -44,7 +44,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
             print("Cancelled")
         case .success(let grantedPermissions, let declinedPermissions, let accessToken):
             print("Logged In")
-            facebookLogin()
+//            facebookLogin()
             
             // push tab view controller
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
@@ -52,25 +52,27 @@ class ViewController: UIViewController, LoginButtonDelegate {
         }
     }
 
-    func facebookLogin() {
-        if let accessToken = AccessToken.current {
-            print("accessing user info")
-            let params = ["fields":"name,email"]
-            let graphRequest = GraphRequest(graphPath: "me", parameters: params)
-            graphRequest.start { (urlResponse, requestResult) in
-                switch requestResult {
-                case .failed(let error):
-                    print(error)
-                case .success(let graphResponse):
-                    if let responseDictionary = graphResponse.dictionaryValue {
-                        UserDefaults.standard.set(responseDictionary, forKey: "userInfo")
-                    }
-                }
-            }
-        } else {
-            print("failed to access user info")
-        }
-    }
+    
+    // NOT USED: storing into user defaults
+//    func facebookLogin() {
+//        if let accessToken = AccessToken.current {
+//            print("accessing user info")
+//            let params = ["fields":"name,email"]
+//            let graphRequest = GraphRequest(graphPath: "me", parameters: params)
+//            graphRequest.start { (urlResponse, requestResult) in
+//                switch requestResult {
+//                case .failed(let error):
+//                    print(error)
+//                case .success(let graphResponse):
+//                    if let responseDictionary = graphResponse.dictionaryValue {
+//                        UserDefaults.standard.set(responseDictionary, forKey: "userInfo")
+//                    }
+//                }
+//            }
+//        } else {
+//            print("failed to access user info")
+//        }
+//    }
 
 }
 
