@@ -9,10 +9,10 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
-
+import Firebase
 class ViewController: UIViewController, LoginButtonDelegate {
     
-   //let storage = FIRStorage.storage()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
