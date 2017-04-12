@@ -7,6 +7,10 @@ target 'FacebookTest' do
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
+pod 'Firebase/Auth'
+pod 'Alamofire', '~> 4.4'
+pod ‘GoogleMaps’, ‘~> 2.1’
+pod ‘GooglePlaces’, ‘~> 2.1’
   # Pods for FacebookTest
 
   target 'FacebookTestTests' do

@@ -13,6 +13,11 @@ import FacebookLogin
 import FBSDKCoreKit
 import FBSDKLoginKit
 
+import Alamofire
+
+import GoogleMaps
+import GooglePlaces
+
 
 
 // https://medium.com/ios-os-x-development/a-simple-swift-login-implementation-with-facebook-sdk-for-ios-version-4-0-1f313ae814da
@@ -26,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
+        
+        GMSServices.provideAPIKey("AIzaSyDAK4qCpsSG-sn32XyT7M2GHeH3sKLaMnc")
+        GMSPlacesClient.provideAPIKey("AIzaSyDAK4qCpsSG-sn32XyT7M2GHeH3sKLaMnc")
+        
         return true
     }
     
