@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B65BF281E9B275200EEF571 /* FriendsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B65BF271E9B275200EEF571 /* FriendsUtils.swift */; };
+		0B65BF2C1E9DD33800EEF571 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B65BF2B1E9DD33800EEF571 /* SwiftyJSON.swift */; };
 		24C024031E907F8D003147DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024021E907F8D003147DE /* AppDelegate.swift */; };
 		24C024051E907F8D003147DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024041E907F8D003147DE /* ViewController.swift */; };
 		24C024081E907F8D003147DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C024061E907F8D003147DE /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		0B65BF271E9B275200EEF571 /* FriendsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsUtils.swift; sourceTree = "<group>"; };
+		0B65BF2B1E9DD33800EEF571 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		24C023FF1E907F8C003147DE /* FacebookTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C024021E907F8D003147DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C024041E907F8D003147DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		24C024011E907F8C003147DE /* FacebookTest */ = {
 			isa = PBXGroup;
 			children = (
+				0B65BF2B1E9DD33800EEF571 /* SwiftyJSON.swift */,
 				0B65BF271E9B275200EEF571 /* FriendsUtils.swift */,
 				8808341F1E9B221C00D56A64 /* GoogleService-Info.plist */,
 				24C024021E907F8D003147DE /* AppDelegate.swift */,
@@ -468,6 +471,7 @@
 				888901091E9DD238006FD3DD /* FirebaseUtils.swift in Sources */,
 				0B65BF281E9B275200EEF571 /* FriendsUtils.swift in Sources */,
 				24C024051E907F8D003147DE /* ViewController.swift in Sources */,
+				0B65BF2C1E9DD33800EEF571 /* SwiftyJSON.swift in Sources */,
 				24C024031E907F8D003147DE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
