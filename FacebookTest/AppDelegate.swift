@@ -12,6 +12,7 @@ import FacebookLogin
 
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Firebase
 
 
 
@@ -30,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        FIRApp.configure()
         return SDKApplicationDelegate.shared.application(application, open:url, sourceApplication:sourceApplication, annotation:annotation)
     }
 
