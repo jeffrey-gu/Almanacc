@@ -22,6 +22,7 @@ class FeedViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // fill out collectionview data source and delegate methods accordingly
         //      for didSelectItem: segue to that particular individual's profile page (Firebase request) (push on ProfileViewController??)
         // make custom collection view cell class
+
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
