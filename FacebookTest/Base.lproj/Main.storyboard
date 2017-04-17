@@ -32,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="-1311" y="-8"/>
         </scene>
-        <!--Item 2-->
+        <!--Head View Controller-->
         <scene sceneID="t69-Y4-gWT">
             <objects>
-                <viewController id="MyI-09-yHz" sceneMemberID="viewController">
+                <viewController id="MyI-09-yHz" customClass="HeadViewController" customModule="FacebookTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hoM-RT-KWV"/>
                         <viewControllerLayoutGuide type="bottom" id="shY-TU-Pud"/>
@@ -45,11 +45,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="xyi-6W-Fqp"/>
+                    <navigationItem key="navigationItem" id="yWQ-Qz-XYv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="2oq-0j-tsj">
+                            <connections>
+                                <action selector="searchWithAddress:" destination="MyI-09-yHz" id="2KP-S2-g6O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="googleMapsContainer" destination="WDR-NI-FUr" id="F1U-TP-kCW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLy-SB-UCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="322"/>
+            <point key="canvasLocation" x="1372" y="321.58920539730138"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="lbF-N3-zjb">
@@ -179,13 +188,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="eus-TP-kCb" kind="relationship" relationship="viewControllers" id="kvs-RP-W46"/>
-                        <segue destination="MyI-09-yHz" kind="relationship" relationship="viewControllers" id="7Cq-Di-Zwn"/>
+                        <segue destination="3sf-JF-IFE" kind="relationship" relationship="viewControllers" id="7Cq-Di-Zwn"/>
                         <segue destination="8xG-L2-Tfv" kind="relationship" relationship="viewControllers" id="Car-Kq-iMR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pE-MR-dAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-522" y="-7"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="Jao-8T-xvr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3sf-JF-IFE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="xyi-6W-Fqp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MEO-qS-xPB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MyI-09-yHz" kind="relationship" relationship="rootViewController" id="hfn-MG-bdO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J71-PZ-G1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="432.80000000000001" y="321.58920539730138"/>
         </scene>
     </scenes>
     <resources>
