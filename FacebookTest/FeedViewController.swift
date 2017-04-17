@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class FeedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class FeedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -37,33 +37,26 @@ class FeedViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(FeedViewCollectionCell.self, forCellWithReuseIdentifier: "cell")
         
         collectionView.isUserInteractionEnabled = true
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-//        return dataStore.count
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfRowsInSection section: Int) -> Int {
-//        let numItems = dataStore.count
-//        let remainder = numItems % Int(numItemsPerRow)
-//        let quotient = numItems / Int(numItemsPerRow)
-//        if (remainder == 0) {
-//            return quotient
-//        }
-//        else {
-//            return quotient+remainder
-//        }
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // TODO: pull down from Firebase to instantiate FeedEvent struct
+        //      pass into cell instantiation
         
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MovieCollectionViewCell
 //        
@@ -78,12 +71,16 @@ class FeedViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //        cell.textView.text = dataStore[indexPath.row].name
 //        cell.imdbID = dataStore[indexPath.row].imdbID
 //        return cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FeedViewCollectionCell
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("calling didSelectItemAt")
+        
+        
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! FeedViewCollectionCell
         
 //        let cell = collectionView.cellForItem(at: indexPath) as! MovieCollectionViewCell
 //        
@@ -102,7 +99,15 @@ class FeedViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //        else {
 //            print ("cell selection not available")
 //        }
-        
-        
+    }
+
+    // collection view layout delegate method
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenSize = collectionView.layer.bounds
+        let screenWidth = screenSize.size.width*0.95
+        let screenHeight = CGFloat(80)
+        return CGSize(width: screenWidth, height: screenHeight)
     }
 }

@@ -25,6 +25,7 @@ struct FeedEvent {
     var location:String?
     var job:String?
     var contact:String?
+    var profilePic:UIImage?
     
     var eventDescription:String?
     var event:eventType? {
@@ -76,5 +77,4 @@ struct FeedEvent {
         }
     }
     
-    var profilePic:UIImage?
 }

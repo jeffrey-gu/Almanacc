@@ -32,8 +32,8 @@ class ProfileViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.getProfileInfo()
-            self.getProfilePicture()
         }
+        self.getProfilePicture()
     }
     
     func getProfilePicture() {
