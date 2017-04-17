@@ -13,11 +13,10 @@ import FacebookLogin
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-import GooglePlaces
+import Alamofire
+
 import GoogleMaps
-
-
-
+import GooglePlaces
 
 
 
@@ -34,12 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         
+        
         GMSServices.provideAPIKey("AIzaSyDAK4qCpsSG-sn32XyT7M2GHeH3sKLaMnc")
-        
         GMSPlacesClient.provideAPIKey("AIzaSyDAK4qCpsSG-sn32XyT7M2GHeH3sKLaMnc")
-        return true
-        
-        
         
         return true
     }

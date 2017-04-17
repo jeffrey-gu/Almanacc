@@ -47,7 +47,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
             
             // push tab view controller
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
-//            guard let controller = storyboard?.instantiateViewController(withIdentifier: ProfileViewController.storyboardIdentifier) as? ProfileViewController else { fatalError("Unable to instantiate an ProfileViewController from the storyboard") }
+            guard let controller = storyboard?.instantiateViewController(withIdentifier: ProfileViewController.storyboardIdentifier) as? ProfileViewController else { fatalError("Unable to instantiate an ProfileViewController from the storyboard") }
         }
     }
 
@@ -62,14 +62,10 @@ class ViewController: UIViewController, LoginButtonDelegate {
                     print(error)
                 case .success(let graphResponse):
                     if let responseDictionary = graphResponse.dictionaryValue {
-                        UserDefaults.standard.set(responseDictionary, forKey: "userInfo")
+                       // UserDefaults.standard.set(responseDictionary, forKey: "userInfo")
                         
                         
-//                        guard let view = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else {
-//                            print("Could not push")
-//                            return
-//                        }
-//                        self.navigationController?.pushViewController(view, animated:true)
+                      
                         
                         
                     }

@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0976C9131EA3D3A60049FD3C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0976C9121EA3D3A60049FD3C /* LocationViewController.swift */; };
-		0976C9151EA443590049FD3C /* HeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0976C9141EA443590049FD3C /* HeadViewController.swift */; };
+		090AD4511E9B654400115D63 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AD4501E9B654400115D63 /* LocationViewController.swift */; };
 		24C024031E907F8D003147DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024021E907F8D003147DE /* AppDelegate.swift */; };
 		24C024051E907F8D003147DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024041E907F8D003147DE /* ViewController.swift */; };
 		24C024081E907F8D003147DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C024061E907F8D003147DE /* Main.storyboard */; };
@@ -41,8 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0976C9121EA3D3A60049FD3C /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		0976C9141EA443590049FD3C /* HeadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadViewController.swift; sourceTree = "<group>"; };
+		090AD4501E9B654400115D63 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		24C023FF1E907F8C003147DE /* FacebookTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C024021E907F8D003147DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C024041E907F8D003147DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,9 +136,8 @@
 			children = (
 				24C024021E907F8D003147DE /* AppDelegate.swift */,
 				24C024041E907F8D003147DE /* ViewController.swift */,
-				0976C9121EA3D3A60049FD3C /* LocationViewController.swift */,
-				0976C9141EA443590049FD3C /* HeadViewController.swift */,
 				24C024061E907F8D003147DE /* Main.storyboard */,
+				090AD4501E9B654400115D63 /* LocationViewController.swift */,
 				24C024091E907F8D003147DE /* Assets.xcassets */,
 				24C0240B1E907F8D003147DE /* LaunchScreen.storyboard */,
 				24C0240E1E907F8D003147DE /* Info.plist */,
@@ -255,7 +252,7 @@
 				TargetAttributes = {
 					24C023FE1E907F8C003147DE = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = AHN2RJ2MJ9;
+						DevelopmentTeam = 22EPVXFNZ8;
 						ProvisioningStyle = Automatic;
 					};
 					24C024121E907F8D003147DE = {
@@ -463,8 +460,7 @@
 				24C024331E9AE28D003147DE /* ProfileViewController.swift in Sources */,
 				24C024051E907F8D003147DE /* ViewController.swift in Sources */,
 				24C024031E907F8D003147DE /* AppDelegate.swift in Sources */,
-				0976C9151EA443590049FD3C /* HeadViewController.swift in Sources */,
-				0976C9131EA3D3A60049FD3C /* LocationViewController.swift in Sources */,
+				090AD4511E9B654400115D63 /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,7 +613,7 @@
 			baseConfigurationReference = 8623B6051939BB5CBBDE03CD /* Pods-FacebookTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AHN2RJ2MJ9;
+				DEVELOPMENT_TEAM = 22EPVXFNZ8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -635,7 +631,7 @@
 			baseConfigurationReference = 91A9235A17A537C4FA627CD4 /* Pods-FacebookTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AHN2RJ2MJ9;
+				DEVELOPMENT_TEAM = 22EPVXFNZ8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
