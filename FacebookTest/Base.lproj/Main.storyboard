@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="-1311" y="-8"/>
         </scene>
-        <!--Item 2-->
+        <!--Head View Controller-->
         <scene sceneID="t69-Y4-gWT">
             <objects>
-                <viewController id="MyI-09-yHz" sceneMemberID="viewController">
+                <viewController id="MyI-09-yHz" customClass="HeadViewController" customModule="FacebookTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hoM-RT-KWV"/>
                         <viewControllerLayoutGuide type="bottom" id="shY-TU-Pud"/>
@@ -44,11 +45,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="xyi-6W-Fqp"/>
+                    <navigationItem key="navigationItem" id="yWQ-Qz-XYv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="2oq-0j-tsj">
+                            <connections>
+                                <action selector="searchWithAddress:" destination="MyI-09-yHz" id="2KP-S2-g6O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="googleMapsContainer" destination="WDR-NI-FUr" id="F1U-TP-kCW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLy-SB-UCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="322"/>
+            <point key="canvasLocation" x="1372" y="321.58920539730138"/>
+        </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="lbF-N3-zjb">
+            <objects>
+                <viewController id="8xG-L2-Tfv" userLabel="Feed View Controller" customClass="FeedViewController" customModule="FacebookTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Aoy-F6-efl"/>
+                        <viewControllerLayoutGuide type="bottom" id="nds-HH-w9w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZDb-kL-zTb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jfh-Vx-QEu">
+                                <rect key="frame" x="28" y="83" width="319" height="500"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XBS-D7-ZLS">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Blc-iM-MxE" customClass="FeedViewCollectionCell" customModule="FacebookTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jfh-Vx-QEu" firstAttribute="centerX" secondItem="ZDb-kL-zTb" secondAttribute="centerX" id="0QI-Fh-EMf"/>
+                            <constraint firstItem="jfh-Vx-QEu" firstAttribute="height" secondItem="ZDb-kL-zTb" secondAttribute="height" multiplier="0.75" id="2Tr-LV-Bja"/>
+                            <constraint firstItem="jfh-Vx-QEu" firstAttribute="centerY" secondItem="ZDb-kL-zTb" secondAttribute="centerY" id="O46-k3-OYZ"/>
+                            <constraint firstItem="jfh-Vx-QEu" firstAttribute="width" secondItem="ZDb-kL-zTb" secondAttribute="width" multiplier="0.85" id="uPX-9I-UJK"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Feed" id="G5z-FJ-BbQ"/>
+                    <connections>
+                        <outlet property="collectionView" destination="jfh-Vx-QEu" id="8Gx-p9-Hs9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CxN-TC-kEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96.799999999999997" y="1063.7181409295354"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="L2F-3u-mUG">
@@ -104,7 +164,7 @@
                             <constraint firstItem="XtK-Rl-tQ3" firstAttribute="top" secondItem="Zfh-Ht-kdo" secondAttribute="bottom" constant="15" id="u1l-Lf-UQf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="5g8-A6-0ks"/>
+                    <tabBarItem key="tabBarItem" title=" You" image="smile-tabicon" id="5g8-A6-0ks"/>
                     <connections>
                         <outlet property="educationField" destination="Qv7-8Z-kJ5" id="COe-cR-SpN"/>
                         <outlet property="locationField" destination="KSO-HL-4Nc" id="3Lh-30-jQE"/>
@@ -128,12 +188,35 @@
                     </tabBar>
                     <connections>
                         <segue destination="eus-TP-kCb" kind="relationship" relationship="viewControllers" id="kvs-RP-W46"/>
-                        <segue destination="MyI-09-yHz" kind="relationship" relationship="viewControllers" id="7Cq-Di-Zwn"/>
+                        <segue destination="3sf-JF-IFE" kind="relationship" relationship="viewControllers" id="7Cq-Di-Zwn"/>
+                        <segue destination="8xG-L2-Tfv" kind="relationship" relationship="viewControllers" id="Car-Kq-iMR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pE-MR-dAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-522" y="-7"/>
         </scene>
+        <!--Item 2-->
+        <scene sceneID="Jao-8T-xvr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3sf-JF-IFE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="xyi-6W-Fqp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MEO-qS-xPB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MyI-09-yHz" kind="relationship" relationship="rootViewController" id="hfn-MG-bdO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J71-PZ-G1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="432.80000000000001" y="321.58920539730138"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="smile-tabicon" width="25" height="25"/>
+    </resources>
 </document>

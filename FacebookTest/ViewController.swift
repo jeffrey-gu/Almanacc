@@ -57,7 +57,6 @@ class ViewController: UIViewController, LoginButtonDelegate {
             findFriends()
             // push tab view controller
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
-//            guard let controller = storyboard?.instantiateViewController(withIdentifier: ProfileViewController.storyboardIdentifier) as? ProfileViewController else { fatalError("Unable to instantiate an ProfileViewController from the storyboard") }
         }
     }
 
