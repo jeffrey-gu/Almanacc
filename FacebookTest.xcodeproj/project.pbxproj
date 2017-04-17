@@ -175,6 +175,8 @@
 				24C024091E907F8D003147DE /* Assets.xcassets */,
 				24C0240B1E907F8D003147DE /* LaunchScreen.storyboard */,
 				24C0240E1E907F8D003147DE /* Info.plist */,
+				24C024321E9AE28D003147DE /* ProfileViewController.swift */,
+				888901081E9DD238006FD3DD /* FirebaseUtils.swift */,
 			);
 			path = FacebookTest;
 			sourceTree = "<group>";
@@ -492,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C024331E9AE28D003147DE /* ProfileViewController.swift in Sources */,
+				888901091E9DD238006FD3DD /* FirebaseUtils.swift in Sources */,
 				24A33B421E9F0598000B4BF2 /* FeedEvent.swift in Sources */,
 				24A33B441EA45013000B4BF2 /* FeedViewCollectionCell.swift in Sources */,
 				0B65BF281E9B275200EEF571 /* FriendsUtils.swift in Sources */,
