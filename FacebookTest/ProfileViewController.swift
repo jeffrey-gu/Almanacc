@@ -91,6 +91,7 @@ class ProfileViewController: UIViewController {
                     dump(responseDictionary)
                     self.nameField.text = responseDictionary["name"] as? String ?? "Mr. Incredible"
                     
+                    let id = responseDictionary["id"] as? String ?? "Invalid ID"
                     let educationList = responseDictionary["education"] as? [Any] ?? [Any]()
                     let schoolDict = educationList[educationList.count-1] as? [String:Any] ?? [String:Any]()
                     let detailedSchoolDict = schoolDict["school"] as? [String:Any] ?? [String:Any]()
@@ -101,13 +102,13 @@ class ProfileViewController: UIViewController {
                     
                     //Insert dictionary into Firebase
                     let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
-                    ref.updateChildValues(responseDictionary, withCompletionBlock: {(err,ref) in
-                        if(err != nil){
-                            print(err)
-                            return
-                        }
-                    })
-                    print("Debug merge")
+//                    ref.childByAutoId().updateChildValues(responseDictionary, withCompletionBlock: {(err,ref) in
+//                        if(err != nil){
+//                            print(err)
+//                            return
+//                        }
+//                    })
+                    ref.child("users").child(id).setValue(responseDictionary)
                 }
             }
         }
