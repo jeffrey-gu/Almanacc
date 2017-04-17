@@ -9,13 +9,14 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
-
+import Firebase
 class ViewController: UIViewController, LoginButtonDelegate {
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let loginButton = LoginButton(readPermissions: [.publicProfile,.email, .userFriends])
+        let loginButton = LoginButton(readPermissions: [.publicProfile,.email, .userFriends, .custom("user_education_history"), .custom("user_location"), .custom("user_work_history"), .custom("user_hometown")])
         loginButton.frame = CGRect(x: 20, y: view.frame.height - 190, width: view.frame.width - 40, height: 50)
         loginButton.delegate = self
         view.addSubview(loginButton)
@@ -43,8 +44,17 @@ class ViewController: UIViewController, LoginButtonDelegate {
             print("Cancelled")
         case .success(let grantedPermissions, let declinedPermissions, let accessToken):
             print("Logged In")
-            facebookLogin()
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                // ...
+                if let error = error {
+                    // ...
+                    return
+                }
+            }
+//            facebookLogin()
             
+            findFriends()
             // push tab view controller
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
 //            guard let controller = storyboard?.instantiateViewController(withIdentifier: ProfileViewController.storyboardIdentifier) as? ProfileViewController else { fatalError("Unable to instantiate an ProfileViewController from the storyboard") }
@@ -79,6 +89,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
             print("failed to access user info")
         }
     }
+
 
 }
 
