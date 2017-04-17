@@ -107,6 +107,7 @@ class ProfileViewController: UIViewController {
                             return
                         }
                     })
+                    print("Debug merge")
                 }
             }
         }
