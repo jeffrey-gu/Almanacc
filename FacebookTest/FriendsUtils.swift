@@ -38,8 +38,10 @@ class Friend : CustomStringConvertible {
     
 }
 
+//Global Variable - access friends array anywhere
 var friendsArray: [Friend] = []
 
+//fill the friends array
 func findFriends(){
     let params = ["fields": "id, first_name, last_name, middle_name, name, email, picture, location, education, hometown"] as [String : Any]
     let graphRequest = GraphRequest(graphPath: "me/friends", parameters: params)
@@ -67,11 +69,6 @@ func findFriends(){
                     let email: String? = jsonData[i]["email"].string
                     friendsArray.append(Friend(id: id!, firstName: firstName, lastName: lastName, middleName: middleName, name: name, email: email, picture: picture, location: location, education: education, hometown: hometown))
                 }
-                
-                print(friendsArray)
-                
-                
-                
             }
         }
     }
