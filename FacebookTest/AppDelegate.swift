@@ -13,6 +13,8 @@ import FacebookLogin
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import GoogleMaps
+import GooglePlaces
 
 
 
@@ -28,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         FIRApp.configure()
+        
+        GMSServices.provideAPIKey("AIzaSyDAK4qCpsSG-sn32XyT7M2GHeH3sKLaMnc")
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyDAK4qCpsSG-sn32XyT7M2GHeH3sKLaMnc")
+        
+        
         return true
     }
     
