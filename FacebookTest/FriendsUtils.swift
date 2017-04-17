@@ -9,7 +9,7 @@
 import Foundation
 import FacebookCore
 
-class Friend {
+class Friend : CustomStringConvertible {
     var id: Int?
     var firstName: String?
     var lastName: String?
@@ -18,11 +18,12 @@ class Friend {
     var email: String?
     var picture: String?
     var location: String?
-    var education: String?
+    var education: JSON?
     var hometown: String?
+    public var description: String { return "Friend: \(name)" }
     
-    init(id: Int, firstName: String, lastName: String, middleName: String, name: String,
-        email: String, picture: String, location: String, education: String, hometown: String) {
+    init(id: Int?, firstName: String?, lastName: String?, middleName: String?, name: String?,
+        email: String?, picture: String?, location: String?, education: JSON?, hometown: String?) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
@@ -35,11 +36,12 @@ class Friend {
         self.hometown = hometown
     }
     
-    
 }
 
+//Global Variable - access friends array anywhere
 var friendsArray: [Friend] = []
 
+//fill the friends array
 func findFriends(){
     let params = ["fields": "id, first_name, last_name, middle_name, name, email, picture, location, education, hometown"] as [String : Any]
     let graphRequest = GraphRequest(graphPath: "me/friends", parameters: params)
@@ -50,48 +52,25 @@ func findFriends(){
         case .success(let graphResponse):
             if let responseDictionary = graphResponse.dictionaryValue {
                 
-                print(responseDictionary)
-                print("making it a json?")
                 let jsonData = JSON(responseDictionary["data"]!)
                 let jsonPaging = JSON(responseDictionary["paging"]!)
                 print(jsonData)
-                print(jsonPaging)
                 
-                let picture = jsonData[0]["picture"]["data"]["url"]
-                print(picture)
-                let name = jsonData[0]["name"]
-                print(name)
-                let location = jsonData[0]["location"]["name"]
-                print(location)
-                
-                
-                
-//                friendsArray = responseDictionary["data"] as? [Any]
-//                print(friendsArray)
-                
-                
+                for i in 0...jsonData.count-1 {
+                    let picture: String? = jsonData[i]["picture"]["data"]["url"].string
+                    let name: String? = jsonData[i]["name"].string
+                    let location: String? = jsonData[i]["location"]["name"].string
+                    let lastName: String? = jsonData[i]["last_name"].string
+                    let middleName: String? = jsonData[i]["middle_name"].string
+                    let id = Int(jsonData[i]["id"].string!)
+                    let firstName: String? = jsonData[i]["first_name"].string
+                    let education: JSON? = jsonData[i]["education"]
+                    let hometown: String? = jsonData[i]["hometown"]["name"].string
+                    let email: String? = jsonData[i]["email"].string
+                    friendsArray.append(Friend(id: id!, firstName: firstName, lastName: lastName, middleName: middleName, name: name, email: email, picture: picture, location: location, education: education, hometown: hometown))
+                }
             }
         }
     }
 }
 
-func getFriendLocation(id: String){
-    print("what up")
-    let params = ["fields": "name, location"]
-    let graphRequest = GraphRequest(graphPath: "/" + id, parameters: params)
-    graphRequest.start { (urlResponse, requestResult) in
-        switch requestResult {
-        case .failed(let error):
-            print("error")
-            print(error)
-        case .success(let graphResponse):
-            if let responseDictionary = graphResponse.dictionaryValue {
-                print(responseDictionary)
-                print("here")
-                
-                //Still haven't implemented pagination
-                
-            }
-        }
-    }
-}
