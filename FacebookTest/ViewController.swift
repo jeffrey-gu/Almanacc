@@ -9,9 +9,10 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
-
+import Firebase
 class ViewController: UIViewController, LoginButtonDelegate {
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -43,6 +44,14 @@ class ViewController: UIViewController, LoginButtonDelegate {
             print("Cancelled")
         case .success(let grantedPermissions, let declinedPermissions, let accessToken):
             print("Logged In")
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                // ...
+                if let error = error {
+                    // ...
+                    return
+                }
+            }
 //            facebookLogin()
             
             findFriends()
