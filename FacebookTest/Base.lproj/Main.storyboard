@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hUA-s1-WXz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,6 +49,34 @@
             </objects>
             <point key="canvasLocation" x="433" y="322"/>
         </scene>
+        <!--Head View Controller-->
+        <scene sceneID="ytf-wO-aF1">
+            <objects>
+                <viewController id="dHJ-8W-s11" customClass="HeadViewController" customModule="FacebookTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1O2-gt-dI5"/>
+                        <viewControllerLayoutGuide type="bottom" id="zph-8G-oU4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MVo-yp-oq2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4aJ-8B-7bA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="yLQ-QN-qRU">
+                            <connections>
+                                <action selector="searchWithAddress:" destination="dHJ-8W-s11" id="y5f-6g-6x6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="googleMapsContainer" destination="MVo-yp-oq2" id="QLf-U8-hLP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iOB-sB-8Ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2368.8000000000002" y="313.49325337331339"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="L2F-3u-mUG">
             <objects>
@@ -94,6 +122,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pE-MR-dAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-522" y="-7"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cD3-5B-VRd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hUA-s1-WXz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="85o-Qm-IKB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dHJ-8W-s11" kind="relationship" relationship="rootViewController" id="gul-j3-XF8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jbe-8y-3F2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429.5999999999999" y="313.49325337331339"/>
         </scene>
     </scenes>
 </document>

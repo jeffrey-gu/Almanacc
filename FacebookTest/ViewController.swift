@@ -65,11 +65,11 @@ class ViewController: UIViewController, LoginButtonDelegate {
                         UserDefaults.standard.set(responseDictionary, forKey: "userInfo")
                         
                         
-                        guard let view = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else {
-                            print("Could not push")
-                            return
-                        }
-                        self.navigationController?.pushViewController(view, animated:true)
+//                        guard let view = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else {
+//                            print("Could not push")
+//                            return
+//                        }
+//                        self.navigationController?.pushViewController(view, animated:true)
                         
                         
                     }

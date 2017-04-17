@@ -24,11 +24,20 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.21.0):
     - FBSDKCoreKit
+  - GoogleMaps (2.2.0):
+    - GoogleMaps/Maps (= 2.2.0)
+  - GoogleMaps/Base (2.2.0)
+  - GoogleMaps/Maps (2.2.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.2.0):
+    - GoogleMaps/Base (= 2.2.0)
 
 DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - GoogleMaps
+  - GooglePlaces
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -38,7 +47,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 8a372ab194b5c7c26355c1920ef52dbeb44bc222
   FBSDKLoginKit: a1a5f4b4ac445823a020fbeeaf5f03714a67ff9c
   FBSDKShareKit: 649a7acfd01a3e056a33994c1bfbb997814cc8a2
+  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
 
-PODFILE CHECKSUM: 8b871ad458d79fcae6e28fec2af69949547ab343
+PODFILE CHECKSUM: e74372b2f1cd25d4ecd78ae5505744e030d5c5ad
 
 COCOAPODS: 1.2.0
