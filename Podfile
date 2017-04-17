@@ -9,6 +9,8 @@ target 'FacebookTest' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'FacebookCore'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
   pod 'FacebookLogin'
   pod 'FacebookShare'
   target 'FacebookTestTests' do

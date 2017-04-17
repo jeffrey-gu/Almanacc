@@ -9,9 +9,10 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
-
+import Firebase
 class ViewController: UIViewController, LoginButtonDelegate {
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,6 +45,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
         case .success(let grantedPermissions, let declinedPermissions, let accessToken):
             print("Logged In")
             
+            findFriends()
             // push tab view controller
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
         }

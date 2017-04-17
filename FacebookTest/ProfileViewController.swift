@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FacebookCore
 import FBSDKCoreKit
+import Firebase
 
 //http://stackoverflow.com/questions/39325970/how-to-access-profile-picture-with-facebook-api-in-swift-3
 //http://stackoverflow.com/questions/39813497/swift-3-display-image-from-url
@@ -21,6 +22,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var educationField: UITextField!
     @IBOutlet weak var workField: UITextField!
     @IBOutlet weak var locationField: UITextField!
+    
     
     static let storyboardIdentifier = "ProfileViewController"
     
@@ -97,6 +99,15 @@ class ProfileViewController: UIViewController {
                     let locationDict = responseDictionary["location"] as? [String:Any] ?? [String:Any]()
                     self.locationField.text = locationDict["name"] as? String ?? "Cityville"
                     
+                    //Insert dictionary into Firebase
+                    let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
+                    ref.updateChildValues(responseDictionary, withCompletionBlock: {(err,ref) in
+                        if(err != nil){
+                            print(err)
+                            return
+                        }
+                    })
+                    print("Debug merge")
                 }
             }
         }
