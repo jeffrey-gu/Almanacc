@@ -125,51 +125,90 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zfh-Ht-kdo">
                                 <rect key="frame" x="16" y="59" width="200" height="200"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XtK-Rl-tQ3">
-                                <rect key="frame" x="42" y="274" width="148" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qv7-8Z-kJ5">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qv7-8Z-kJ5">
                                 <rect key="frame" x="59" y="375" width="257" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xvm-hT-qdk">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xvm-hT-qdk">
                                 <rect key="frame" x="59" y="450" width="257" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KSO-HL-4Nc">
-                                <rect key="frame" x="240" y="144" width="119" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KSO-HL-4Nc">
+                                <rect key="frame" x="224" y="97" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghf-RE-c4U">
+                                <rect key="frame" x="16" y="267" width="200" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alma Mater" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mg9-ee-VKd">
+                                <rect key="frame" x="59" y="352" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Employer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5h-Ow-SC1">
+                                <rect key="frame" x="59" y="428" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxe-V1-fQW">
+                                <rect key="frame" x="326" y="375" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="pen-icon"/>
+                                <connections>
+                                    <action selector="editUniversity:" destination="eus-TP-kCb" eventType="touchUpInside" id="Ma5-vL-2SS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdD-0p-TOt">
+                                <rect key="frame" x="326" y="450" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="pen-icon"/>
+                                <connections>
+                                    <action selector="editJob:" destination="eus-TP-kCb" eventType="touchUpInside" id="86v-v6-w35"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dl-T2-m8x">
+                                <rect key="frame" x="335" y="135" width="24" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="pen-icon"/>
+                                <connections>
+                                    <action selector="editLocation:" destination="eus-TP-kCb" eventType="touchUpInside" id="yIu-P2-9Yv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="XtK-Rl-tQ3" secondAttribute="trailing" constant="169" id="2yC-Dr-gfU"/>
                             <constraint firstItem="Zfh-Ht-kdo" firstAttribute="top" secondItem="b9a-W2-H7L" secondAttribute="bottom" constant="39" id="Bbl-Pt-5Ak"/>
                             <constraint firstItem="QBR-ye-jZ0" firstAttribute="top" secondItem="Zfh-Ht-kdo" secondAttribute="bottom" constant="359" id="Hw0-Dz-AfS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zfh-Ht-kdo" secondAttribute="trailing" constant="143" id="d6E-9R-iyR"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Zfh-Ht-kdo" secondAttribute="leading" id="dga-7p-cJf"/>
-                            <constraint firstItem="XtK-Rl-tQ3" firstAttribute="leading" secondItem="hbj-jM-as5" secondAttribute="leadingMargin" constant="26" id="svd-Z5-DVZ"/>
-                            <constraint firstItem="XtK-Rl-tQ3" firstAttribute="top" secondItem="Zfh-Ht-kdo" secondAttribute="bottom" constant="15" id="u1l-Lf-UQf"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title=" You" image="smile-tabicon" id="5g8-A6-0ks"/>
                     <connections>
                         <outlet property="educationField" destination="Qv7-8Z-kJ5" id="COe-cR-SpN"/>
+                        <outlet property="jobEditButton" destination="QdD-0p-TOt" id="iK4-fl-ofV"/>
+                        <outlet property="locEditButton" destination="5dl-T2-m8x" id="hcL-VE-fL3"/>
                         <outlet property="locationField" destination="KSO-HL-4Nc" id="3Lh-30-jQE"/>
-                        <outlet property="nameField" destination="XtK-Rl-tQ3" id="rUr-iu-W4f"/>
+                        <outlet property="nameField" destination="Ghf-RE-c4U" id="Ffj-0f-N7F"/>
                         <outlet property="profileView" destination="Zfh-Ht-kdo" id="KAS-fr-GbC"/>
+                        <outlet property="uniEditButton" destination="Vxe-V1-fQW" id="QSI-Wh-iXt"/>
                         <outlet property="workField" destination="Xvm-hT-qdk" id="cng-1Q-STH"/>
                     </connections>
                 </viewController>
@@ -202,7 +241,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3sf-JF-IFE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 2" id="xyi-6W-Fqp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MEO-qS-xPB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MEO-qS-xPB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -217,6 +256,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pen-icon" width="30" height="30"/>
         <image name="smile-tabicon" width="25" height="25"/>
     </resources>
 </document>
