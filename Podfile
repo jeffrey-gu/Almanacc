@@ -4,15 +4,17 @@
 target 'FacebookTest' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-pod 'FacebookCore'
-pod 'FacebookLogin'
-pod 'FacebookShare'
-pod 'Firebase/Auth'
-pod 'Alamofire', '~> 4.4'
-pod ‘GoogleMaps’, ‘~> 2.1’
-pod ‘GooglePlaces’, ‘~> 2.1’
-  # Pods for FacebookTest
 
+  # Pods for FacebookTest
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'FacebookCore'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+  pod 'GooglePlaces’
+  pod ‘GoogleMaps’
   target 'FacebookTestTests' do
     inherit! :search_paths
     # Pods for testing
