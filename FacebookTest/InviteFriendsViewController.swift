@@ -17,7 +17,7 @@ class InviteFriendsViewController: UIViewController, FBSDKAppInviteDialogDelegat
         super.viewDidLoad()
         
         let inviteButton = UIButton(type: UIButtonType.system) as UIButton
-        let xPosition:CGFloat = 50
+        let xPosition:CGFloat = 150
         let yPosition:CGFloat = 100
         let buttonWidth:CGFloat = 150
         let buttonHeight:CGFloat = 45
