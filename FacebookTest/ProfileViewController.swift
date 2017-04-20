@@ -18,11 +18,14 @@ import Firebase
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileView: UIImageView!
-    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var educationField: UITextField!
     @IBOutlet weak var workField: UITextField!
     @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var nameField: UILabel!
     
+    @IBOutlet weak var locEditButton: UIButton!
+    @IBOutlet weak var uniEditButton: UIButton!
+    @IBOutlet weak var jobEditButton: UIButton!
     
     static let storyboardIdentifier = "ProfileViewController"
     
@@ -37,6 +40,54 @@ class ProfileViewController: UIViewController {
         }
         self.getProfilePicture()
     }
+    
+    @IBAction func editLocation(_ sender: UIButton) {
+        let editStatus = !locationField.isUserInteractionEnabled
+        locationField.isUserInteractionEnabled = editStatus
+        
+        if (editStatus) {
+            // if enabled
+            locEditButton.setImage(#imageLiteral(resourceName: "check-icon"), for: .normal)
+            locationField.becomeFirstResponder()
+            //TODO: source Google Maps API for location search?
+        }
+        else {
+            locEditButton.setImage(#imageLiteral(resourceName: "pen-icon"), for: .normal)
+            self.view.becomeFirstResponder()
+            //TODO update DB
+        }
+    }
+    @IBAction func editUniversity(_ sender: UIButton) {
+        let editStatus = !educationField.isUserInteractionEnabled
+        educationField.isUserInteractionEnabled = editStatus
+        
+        if (editStatus) {
+            // if enabled
+            uniEditButton.setImage(#imageLiteral(resourceName: "check-icon"), for: .normal)
+            educationField.becomeFirstResponder()
+        }
+        else {
+            uniEditButton.setImage(#imageLiteral(resourceName: "pen-icon"), for: .normal)
+            self.view.becomeFirstResponder()
+            //TODO update DB
+        }
+    }
+    @IBAction func editJob(_ sender: UIButton) {
+        let editStatus = !workField.isUserInteractionEnabled
+        workField.isUserInteractionEnabled = editStatus
+        
+        if (editStatus) {
+            // if enabled
+            jobEditButton.setImage(#imageLiteral(resourceName: "check-icon"), for: .normal)
+            workField.becomeFirstResponder()
+        }
+        else {
+            jobEditButton.setImage(#imageLiteral(resourceName: "pen-icon"), for: .normal)
+            self.view.becomeFirstResponder()
+            //TODO update DB
+        }
+    }
+    
     
     func getProfilePicture() {
         //TODO: refactor this using the FacebookCore module instead of FBSDK?

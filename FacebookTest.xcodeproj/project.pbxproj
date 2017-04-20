@@ -130,6 +130,7 @@
 		24A33B3F1E9F0559000B4BF2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				24C024321E9AE28D003147DE /* ProfileViewController.swift */,
 				24A33B471EA4607E000B4BF2 /* LocationViewController.swift */,
 				24A33B451EA46057000B4BF2 /* HeadViewController.swift */,
 				24C024041E907F8D003147DE /* ViewController.swift */,
@@ -183,7 +184,6 @@
 				24C024091E907F8D003147DE /* Assets.xcassets */,
 				24C0240B1E907F8D003147DE /* LaunchScreen.storyboard */,
 				24C0240E1E907F8D003147DE /* Info.plist */,
-				24C024321E9AE28D003147DE /* ProfileViewController.swift */,
 				888901081E9DD238006FD3DD /* FirebaseUtils.swift */,
 			);
 			path = FacebookTest;
