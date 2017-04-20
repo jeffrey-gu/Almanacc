@@ -10,12 +10,13 @@ import Foundation
 import UIKit
 import FacebookCore
 import FBSDKCoreKit
+import FBSDKShareKit
 import Firebase
 
 //http://stackoverflow.com/questions/39325970/how-to-access-profile-picture-with-facebook-api-in-swift-3
 //http://stackoverflow.com/questions/39813497/swift-3-display-image-from-url
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
     
     @IBOutlet weak var profileView: UIImageView!
     @IBOutlet weak var educationField: UITextField!
@@ -88,6 +89,25 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func inviteFriends(_ sender: UIButton) {
+        print("Invite button tapped")
+        
+        let inviteDialog:FBSDKAppInviteDialog = FBSDKAppInviteDialog()
+        if(inviteDialog.canShow()){
+            
+            let appLinkUrl:NSURL = NSURL(string: "https://fb.me/1886351618271924")!
+            //let previewImageUrl:NSURL = NSURL(string: "http://yourwebpage.com/preview-image.png")!
+            
+            let inviteContent:FBSDKAppInviteContent = FBSDKAppInviteContent()
+            inviteContent.appLinkURL = appLinkUrl as URL!
+            //inviteContent.appInvitePreviewImageURL = previewImageUrl as URL!
+            
+            inviteDialog.content = inviteContent
+            inviteDialog.delegate = self
+            inviteDialog.show()
+        }
+
+    }
     
     func getProfilePicture() {
         //TODO: refactor this using the FacebookCore module instead of FBSDK?
@@ -207,5 +227,24 @@ class ProfileViewController: UIViewController {
             print("id key doesn't exist")
             queryFB(flag: true)
         }
+    }
+    
+    /**
+     Sent to the delegate when the app invite completes without error.
+     - Parameter appInviteDialog: The FBSDKAppInviteDialog that completed.
+     - Parameter results: The results from the dialog.  This may be nil or empty.
+     */
+    public func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [AnyHashable : Any]!){
+        print("Complete invite without error")
+    }
+    
+    
+    /**
+     Sent to the delegate when the app invite encounters an error.
+     - Parameter appInviteDialog: The FBSDKAppInviteDialog that completed.
+     - Parameter error: The error.
+     */
+    public func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: Error!){
+        print("Error in invite \(error)")
     }
 }
