@@ -108,7 +108,7 @@ class ProfileViewController: UIViewController {
                 let downloadPicTask = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
                     // The download has finished.
                     if let e = error {
-                        print("Error downloading cat picture: \(e)")
+                        print("Error downloading profile picture: \(e)")
                     } else {
                         // No errors found, check HTTP response
                         if let res = response as? HTTPURLResponse {
@@ -130,38 +130,70 @@ class ProfileViewController: UIViewController {
         })
     }
     
-    func getProfileInfo() {
-        let params = ["fields":"name,email,education,location,work,hometown"]
-        let graphRequest = GraphRequest(graphPath: "me", parameters: params)
-        graphRequest.start { (urlResponse, requestResult) in
-            switch requestResult {
-            case .failed(let error):
-                print(error)
-            case .success(let graphResponse):
-                if let responseDictionary = graphResponse.dictionaryValue {
-                    dump(responseDictionary)
-                    self.nameField.text = responseDictionary["name"] as? String ?? "Mr. Incredible"
-                    
-                    let id = responseDictionary["id"] as? String ?? "Invalid ID"
-                    let educationList = responseDictionary["education"] as? [Any] ?? [Any]()
-                    let schoolDict = educationList[educationList.count-1] as? [String:Any] ?? [String:Any]()
-                    let detailedSchoolDict = schoolDict["school"] as? [String:Any] ?? [String:Any]()
-                    self.educationField.text = detailedSchoolDict["name"] as? String ?? "Superhero University"
-                    
-                    let locationDict = responseDictionary["location"] as? [String:Any] ?? [String:Any]()
-                    self.locationField.text = locationDict["name"] as? String ?? "Cityville"
-                    
-                    //Insert dictionary into Firebase
-                    let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
-//                    ref.childByAutoId().updateChildValues(responseDictionary, withCompletionBlock: {(err,ref) in
-//                        if(err != nil){
-//                            print(err)
-//                            return
-//                        }
-//                    })
-                    ref.child("users").child(id).setValue(responseDictionary)
+    func queryFB(flag:Bool) {
+        if(!flag) {
+            print("pulling profile info from DB")
+            let params = ["fields":"name,email,education,location,work,hometown"]
+            let graphRequest = GraphRequest(graphPath: "me", parameters: params)
+            graphRequest.start { (urlResponse, requestResult) in
+                switch requestResult {
+                case .failed(let error):
+                    print(error)
+                case .success(let graphResponse):
+                    if let responseDictionary = graphResponse.dictionaryValue {
+                        dump(responseDictionary)
+                        self.nameField.text = responseDictionary["name"] as? String ?? "Mr. Incredible"
+                        
+                        let id = responseDictionary["id"] as? String ?? "Invalid ID"
+                        let educationList = responseDictionary["education"] as? [Any] ?? [Any]()
+                        let schoolDict = educationList[educationList.count-1] as? [String:Any] ?? [String:Any]()
+                        let detailedSchoolDict = schoolDict["school"] as? [String:Any] ?? [String:Any]()
+                        self.educationField.text = detailedSchoolDict["name"] as? String ?? "Superhero University"
+                        
+                        let locationDict = responseDictionary["location"] as? [String:Any] ?? [String:Any]()
+                        self.locationField.text = locationDict["name"] as? String ?? "Cityville"
+                        
+                        //Insert dictionary into Firebase
+                        let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
+                        //                    ref.childByAutoId().updateChildValues(responseDictionary, withCompletionBlock: {(err,ref) in
+                        //                        if(err != nil){
+                        //                            print(err)
+                        //                            return
+                        //                        }
+                        //                    })
+                        ref.child("users").child(id).setValue(responseDictionary)
+                    }
                 }
             }
+        }
+        else {
+            print("already have profile info")
+        }
+    }
+    
+    func getProfileInfo() {
+        // pull from UserDefaults for Facebook ID, check against Firebase
+        // if exists, no need to make a Graph Request
+        var existsInDB = false
+        let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
+        if let keyExists = userInfo["id"] {
+//            print("indexing Firebase with id: ", keyExists)
+            let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
+            ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+                let enumerator = snapshot.children
+                while let child = enumerator.nextObject() as? FIRDataSnapshot {
+                    let childDict = child.value as? [String:Any] ?? [String:Any]()
+                    let id = childDict["id"] as? String ?? "??"
+                    if(id == keyExists as? String) {
+                        existsInDB = true
+                    }
+                }
+                self.queryFB(flag: existsInDB)
+            })
+        }
+        else {
+            print("id key doesn't exist")
+            queryFB(flag: true)
         }
     }
 }

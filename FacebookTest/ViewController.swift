@@ -52,7 +52,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
                     return
                 }
             }
-//            facebookLogin()
+            setUserInfo()
             
             findFriends()
             // push tab view controller
@@ -60,27 +60,24 @@ class ViewController: UIViewController, LoginButtonDelegate {
         }
     }
 
-    
-    // NOT USED: storing into user defaults
-//    func facebookLogin() {
-//        if let accessToken = AccessToken.current {
-//            print("accessing user info")
-//            let params = ["fields":"name,email"]
-//            let graphRequest = GraphRequest(graphPath: "me", parameters: params)
-//            graphRequest.start { (urlResponse, requestResult) in
-//                switch requestResult {
-//                case .failed(let error):
-//                    print(error)
-//                case .success(let graphResponse):
-//                    if let responseDictionary = graphResponse.dictionaryValue {
-//                        UserDefaults.standard.set(responseDictionary, forKey: "userInfo")
-//                    }
-//                }
-//            }
-//        } else {
-//            print("failed to access user info")
-//        }
-//    }
+    func setUserInfo() {
+        if let accessToken = AccessToken.current {
+            let params = ["fields":"id,name,email"]
+            let graphRequest = GraphRequest(graphPath: "me", parameters: params)
+            graphRequest.start { (urlResponse, requestResult) in
+                switch requestResult {
+                case .failed(let error):
+                    print(error)
+                case .success(let graphResponse):
+                    if let responseDictionary = graphResponse.dictionaryValue {
+                        UserDefaults.standard.set(responseDictionary, forKey: "userInfo")
+                    }
+                }
+            }
+        } else {
+            print ("failed to access user info")
+        }
+    }
 
 }
 
