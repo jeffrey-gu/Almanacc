@@ -59,7 +59,7 @@ class InviteFriendsViewController: UIViewController, FBSDKAppInviteDialogDelegat
      - Parameter results: The results from the dialog.  This may be nil or empty.
      */
     public func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [AnyHashable : Any]!){
-        
+        print("Complete invite without error")
     }
     
     
@@ -69,7 +69,7 @@ class InviteFriendsViewController: UIViewController, FBSDKAppInviteDialogDelegat
      - Parameter error: The error.
      */
     public func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: Error!){
-        
+        print("Error in invite \(error)")
     }
     
 
