@@ -30,6 +30,9 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
     
     static let storyboardIdentifier = "ProfileViewController"
     
+    let storageRef = FIRStorage.storage().reference()
+    let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
+    
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         
@@ -39,7 +42,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
         DispatchQueue.main.async {
             self.getProfileInfo()
         }
-        self.getProfilePicture()
+//        self.getProfilePicture()
     }
     
     @IBAction func editLocation(_ sender: UIButton) {
@@ -137,6 +140,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
                                 // Convert Data into image and set profile
                                 let image = UIImage(data: imageData)
                                 self.profileView.image = image
+                                self.storeProfilePic()
                             } else {
                                 print("Couldn't get image: Image is nil")
                             }
@@ -150,9 +154,37 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
         })
     }
     
+    func storeProfilePic() {
+        let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
+        let id = userInfo["id"] as! String
+        
+        // TODO: tinker with compression quality or use png format?
+        let imageData = UIImageJPEGRepresentation(self.profileView.image!, 0.9)!
+        // set upload path
+        let filePath = "\(id)/\("userPhoto")"
+        let metaData = FIRStorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+//        let storageRef = FIRStorage.storage().reference()
+//        let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
+        
+        
+        self.storageRef.child(filePath).put(imageData, metadata: metaData){(metaData,error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            else {
+                //store download url in DB
+                let downloadURL = metaData!.downloadURL()!.absoluteString
+                self.ref.child("users").child(id).updateChildValues(["picture": downloadURL])
+            }
+        }
+    }
+    
     func queryFB(flag:Bool) {
         if(!flag) {
-            print("pulling profile info from DB")
+            print("pulling profile info from Facebook Graph API")
             let params = ["fields":"name,email,education,location,work,hometown"]
             let graphRequest = GraphRequest(graphPath: "me", parameters: params)
             graphRequest.start { (urlResponse, requestResult) in
@@ -188,6 +220,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
                     }
                 }
             }
+            getProfilePicture()
         }
         else {
             print("already have profile info")
@@ -201,8 +234,8 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
         let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
         if let keyExists = userInfo["id"] {
 //            print("indexing Firebase with id: ", keyExists)
-            let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
-            ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+//            let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
+            self.ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
                 let enumerator = snapshot.children
                 while let child = enumerator.nextObject() as? FIRDataSnapshot {
                     let childDict = child.value as? [String:Any] ?? [String:Any]()
@@ -218,6 +251,22 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
                         
                         //name
                         self.nameField.text = childDict["name"] as? String ?? "Mr. Incredible"
+                        
+                        //profile image
+                        if let pictureURL = childDict["picture"] as? String {
+                            let filePath = "\(id)/\("userPhoto")"
+                            self.storageRef.child(filePath).data(withMaxSize: 10*1024*1024, completion: { (data, error) in
+                                if (error != nil) {
+                                    print(error ?? "image pull failed")
+                                    self.getProfilePicture()
+                                }
+                                else {
+                                    let userPhoto = UIImage(data: data!)
+                                    self.profileView.image = userPhoto
+                                    print("pulled profile pic locally")
+                                }
+                            })
+                        }
                     }
                 }
                 self.queryFB(flag: existsInDB)
