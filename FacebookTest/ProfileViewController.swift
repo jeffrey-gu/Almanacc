@@ -161,7 +161,10 @@ class ProfileViewController: UIViewController {
                         //                            return
                         //                        }
                         //                    })
-                        ref.child("users").child(id).setValue(responseDictionary)
+//                        ref.child("users").child(id).setValue(responseDictionary)
+                        
+                        let storageDict:[String:Any] = ["id":id, "name":self.nameField.text, "education": self.educationField.text, "location":self.locationField.text, "work":self.workField.text]
+                        ref.child("users").child(id).setValue(storageDict)
                     }
                 }
             }
@@ -185,7 +188,16 @@ class ProfileViewController: UIViewController {
                     let childDict = child.value as? [String:Any] ?? [String:Any]()
                     let id = childDict["id"] as? String ?? "??"
                     if(id == keyExists as? String) {
-                        existsInDB = true
+                        existsInDB = true   //mark flag
+                        
+                        //education
+                        self.educationField.text = childDict["education"] as? String
+                        
+                        //location
+                        self.locationField.text = childDict["location"] as? String ?? "Cityville"
+                        
+                        //name
+                        self.nameField.text = childDict["name"] as? String ?? "Mr. Incredible"
                     }
                 }
                 self.queryFB(flag: existsInDB)
