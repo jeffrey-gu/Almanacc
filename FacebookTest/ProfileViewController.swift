@@ -58,7 +58,11 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
         else {
             locEditButton.setImage(#imageLiteral(resourceName: "pen-icon"), for: .normal)
             self.view.becomeFirstResponder()
-            //TODO update DB
+            
+            let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
+            if let id = userInfo["id"] {
+                self.ref.child("users").child(id as! String).updateChildValues(["location": self.locationField.text])
+            }
         }
     }
     @IBAction func editUniversity(_ sender: UIButton) {
@@ -73,7 +77,11 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
         else {
             uniEditButton.setImage(#imageLiteral(resourceName: "pen-icon"), for: .normal)
             self.view.becomeFirstResponder()
-            //TODO update DB
+            
+            let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
+            if let id = userInfo["id"] {
+                self.ref.child("users").child(id as! String).updateChildValues(["education": self.educationField.text])
+            }
         }
     }
     @IBAction func editJob(_ sender: UIButton) {
@@ -88,7 +96,10 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
         else {
             jobEditButton.setImage(#imageLiteral(resourceName: "pen-icon"), for: .normal)
             self.view.becomeFirstResponder()
-            //TODO update DB
+            let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
+            if let id = userInfo["id"] {
+                self.ref.child("users").child(id as! String).updateChildValues(["work": self.workField.text])
+            }
         }
     }
     
@@ -206,7 +217,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
                         self.locationField.text = locationDict["name"] as? String ?? "Cityville"
                         
                         //Insert dictionary into Firebase
-                        let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
+//                        let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
                         //                    ref.childByAutoId().updateChildValues(responseDictionary, withCompletionBlock: {(err,ref) in
                         //                        if(err != nil){
                         //                            print(err)
@@ -216,7 +227,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
 //                        ref.child("users").child(id).setValue(responseDictionary)
                         
                         let storageDict:[String:Any] = ["id":id, "name":self.nameField.text, "education": self.educationField.text, "location":self.locationField.text, "work":self.workField.text]
-                        ref.child("users").child(id).setValue(storageDict)
+                        self.ref.child("users").child(id).setValue(storageDict)
                     }
                 }
             }
