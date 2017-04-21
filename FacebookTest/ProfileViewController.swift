@@ -225,9 +225,13 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
                         //                        }
                         //                    })
 //                        ref.child("users").child(id).setValue(responseDictionary)
+                        var storageDict:[String:Any] = ["id":id, "name": self.nameField.text, "education": self.educationField.text, "location":self.locationField.text, "work":self.workField.text]
+                        var newsfeed = [String : Any]()
+                        newsfeed["0"] = ["You joined Almanacc!", NSDate().timeIntervalSince1970 ]
+                        //storageDict["newsfeed"] = newsfeed
                         
-                        let storageDict:[String:Any] = ["id":id, "name":self.nameField.text, "education": self.educationField.text, "location":self.locationField.text, "work":self.workField.text]
                         self.ref.child("users").child(id).setValue(storageDict)
+                        self.ref.child("newsfeed").child(id).setValue(newsfeed)
                     }
                 }
             }
@@ -262,6 +266,8 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
                         
                         //name
                         self.nameField.text = childDict["name"] as? String ?? "Mr. Incredible"
+                        
+                        
                         
                         //profile image
                         if let pictureURL = childDict["picture"] as? String {
