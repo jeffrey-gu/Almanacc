@@ -274,7 +274,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
         }
         else {
             print("id key doesn't exist")
-            queryFB(flag: true)
+            queryFB(flag: false)
         }
     }
     
