@@ -41,6 +41,7 @@ class Friend : CustomStringConvertible {
 //Global Variable - access friends array anywhere
 var friendsArray: [Friend] = []
 
+
 //fill the friends array
 func findFriends(){
     let params = ["fields": "id, first_name, last_name, middle_name, name, email, picture, location, education, hometown"] as [String : Any]

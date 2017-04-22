@@ -14,7 +14,7 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
 
     
     let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
-    var theData = [String: Any ]()
+    var theData = NSMutableArray.init()
         {
         didSet{
             tableView.reloadData()
@@ -34,7 +34,6 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
     }
     
     private func fetchDataForTableView() {
-        self.theData = [:]
         let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
         print("foobar")
         print(userInfo["id"])
@@ -55,13 +54,22 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
                 // Get user value
                 print(snapshot.value)
                 
-                let value = snapshot.value as? NSArray
-                dump(value)
-                let status = value?[0] as? NSArray
-                print(status?[0])
-                print(status?[1])
-                //let time = value?[1] as? String ?? ""
-               
+                let newsfeed = snapshot.value as? NSArray
+                dump(newsfeed)
+
+                let enumerator = newsfeed?.reverseObjectEnumerator()
+                while let status = enumerator?.nextObject() as? NSArray{
+                    let date = NSDate(timeIntervalSince1970: status[1] as! TimeInterval)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "M/d/yy, H:mm"
+                    let dateString = dateFormatter.string(from: date as Date)
+                    let statusTime = [status[0], dateString]
+                    self.theData.add(anObject: statusTime)
+                    self.tableView.reloadData()
+                    print(status[0])
+                    print(status[1])
+                    print(dateString)
+                }
                 print("foobar")
                 
                 // ...
@@ -101,7 +109,11 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
 //        cell.textLabel!.text = event["0"]
 //        cell.detailTextLabel?.text = event["1"]
             //print(indexPath.row)
-        
+        let event = theData[indexPath.row] as? NSArray
+        cell.textLabel!.text = event?[0] as? String
+        cell.detailTextLabel!.text = event?[1] as? String
+        print(cell.detailTextLabel!.text)
+        print(friendsArray)
         return cell
     }
     
@@ -116,7 +128,6 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
         
         setupTableView()
         fetchDataForTableView()
-        
     }
     
     override func didReceiveMemoryWarning() {
