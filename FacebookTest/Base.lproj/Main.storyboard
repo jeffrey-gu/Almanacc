@@ -74,7 +74,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" id="G5z-FJ-BbQ"/>
                     <connections>
-                        <segue destination="zfY-Fa-wPH" kind="show" identifier="FriendProfileView" id="myC-QG-VcI"/>
+                        <segue destination="zfY-Fa-wPH" kind="presentation" identifier="FriendProfileView" id="myC-QG-VcI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxN-TC-kEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,7 +98,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="&lt; Back"/>
                                 <connections>
-                                    <segue destination="8xG-L2-Tfv" kind="show" identifier="BackToFeed" action="showDetailViewController:sender:" id="lkq-lS-POi"/>
+                                    <action selector="pressedBack:" destination="zfY-Fa-wPH" eventType="touchUpInside" id="AYs-lS-GLG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEI-pC-b5E">
@@ -306,7 +306,4 @@
         <image name="pen-icon" width="30" height="30"/>
         <image name="smile-tabicon" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="lkq-lS-POi"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -40,5 +40,8 @@ class FriendProfileViewController: UIViewController {
         
     }
 
+    @IBAction func pressedBack(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }
