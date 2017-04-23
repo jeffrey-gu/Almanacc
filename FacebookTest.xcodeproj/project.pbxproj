@@ -11,6 +11,7 @@
 		0B65BF2C1E9DD33800EEF571 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B65BF2B1E9DD33800EEF571 /* SwiftyJSON.swift */; };
 		0B65BF301EA7FF1800EEF571 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B65BF2F1EA7FF1800EEF571 /* InviteFriendsViewController.swift */; };
 		0B65BF331EAC075700EEF571 /* NotifcationsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B65BF321EAC075700EEF571 /* NotifcationsUtils.swift */; };
+		0BC391ED1EAC6C0A00373F32 /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC391EC1EAC6C0900373F32 /* FriendProfileViewController.swift */; };
 		24A33B3E1E9F0145000B4BF2 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A33B3D1E9F0145000B4BF2 /* FeedViewController.swift */; };
 		24A33B421E9F0598000B4BF2 /* FeedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A33B411E9F0598000B4BF2 /* FeedEvent.swift */; };
 		24A33B441EA45013000B4BF2 /* FeedViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A33B431EA45013000B4BF2 /* FeedViewCollectionCell.swift */; };
@@ -54,6 +55,7 @@
 		0B65BF2B1E9DD33800EEF571 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		0B65BF2F1EA7FF1800EEF571 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		0B65BF321EAC075700EEF571 /* NotifcationsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifcationsUtils.swift; sourceTree = "<group>"; };
+		0BC391EC1EAC6C0900373F32 /* FriendProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		24A33B3D1E9F0145000B4BF2 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		24A33B411E9F0598000B4BF2 /* FeedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEvent.swift; sourceTree = "<group>"; };
 		24A33B431EA45013000B4BF2 /* FeedViewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewCollectionCell.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				24A33B3D1E9F0145000B4BF2 /* FeedViewController.swift */,
 				0B65BF2F1EA7FF1800EEF571 /* InviteFriendsViewController.swift */,
 				24B3CF1B1EAC32850097D8AB /* LocationEditViewController.swift */,
+				0BC391EC1EAC6C0900373F32 /* FriendProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 			files = (
 				24B3CF1C1EAC32850097D8AB /* LocationEditViewController.swift in Sources */,
 				24C024331E9AE28D003147DE /* ProfileViewController.swift in Sources */,
+				0BC391ED1EAC6C0A00373F32 /* FriendProfileViewController.swift in Sources */,
 				24A33B421E9F0598000B4BF2 /* FeedEvent.swift in Sources */,
 				24A33B441EA45013000B4BF2 /* FeedViewCollectionCell.swift in Sources */,
 				0B65BF281E9B275200EEF571 /* FriendsUtils.swift in Sources */,

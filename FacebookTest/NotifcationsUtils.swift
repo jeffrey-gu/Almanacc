@@ -38,7 +38,7 @@ var accessToken: String?
 
 func sendFBNotification(recipientID: String, template: String, href: String) {
     let params = ["fields": ""] as [String : Any]
-    let graphPath = "/\(recipientID)/notifications?template=\(template)&href=\(href)"
+    let graphPath = "\(recipientID)/notifications?template=\(template)&href=\(href)"
     print("graph path is: \(graphPath)")
     let graphRequest = GraphRequest(
         graphPath: graphPath,

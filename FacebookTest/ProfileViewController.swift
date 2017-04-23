@@ -71,7 +71,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMS
                 if let id = userInfo["id"] {
                     self.ref.child("users").child(id as! String).updateChildValues(["location": self.locationField.text ?? ""])
                     let eventString = self.nameField.text! + " moved to " + self.locationField.text!
-                    self.addToFriendNewsFeed(event: eventString)
+                    self.addToFriendNewsFeed(event: eventString, ownID: id as! String)
                 }
             }
         }
@@ -109,7 +109,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMS
             if let id = userInfo["id"] {
                 self.ref.child("users").child(id as! String).updateChildValues(["education": self.educationField.text])
                 let eventString = self.nameField.text! + " went to " + self.educationField.text!
-                addToFriendNewsFeed(event: eventString)
+                addToFriendNewsFeed(event: eventString, ownID: id as! String)
             }
         }
     }
@@ -129,7 +129,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMS
             if let id = userInfo["id"] {
                 self.ref.child("users").child(id as! String).updateChildValues(["work": self.workField.text])
                 let eventString = self.nameField.text! + " is now working for " + self.workField.text!
-                addToFriendNewsFeed(event: eventString)
+                addToFriendNewsFeed(event: eventString, ownID: id as! String)
             }
         }
     }
@@ -258,9 +258,8 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMS
 //                        ref.child("users").child(id).setValue(responseDictionary)
                         var storageDict:[String:Any] = ["id":id, "name": self.nameField.text, "education": self.educationField.text, "location":self.locationField.text, "work":self.workField.text]
                         var newsfeed = [String : Any]()
-                        newsfeed["0"] = ["You joined Almanacc!", NSDate().timeIntervalSince1970 ]
+                        newsfeed["0"] = ["You joined Almanacc!", NSDate().timeIntervalSince1970, id ]
                         //storageDict["newsfeed"] = newsfeed
-                        
                         self.ref.child("users").child(id).setValue(storageDict)
                         self.ref.child("newsfeed").child(id).setValue(newsfeed)
                     }
@@ -329,7 +328,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMS
     }
     
     
-    public func addToFriendNewsFeed(event: String){
+    public func addToFriendNewsFeed(event: String, ownID: String){
         for friend in friendsArray{
             let idString = String(friend.id!)
             
@@ -338,11 +337,11 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMS
                    
                 let newsfeed = snapshot.value as? NSArray
                 
-                var updatedFeed = newsfeed?.adding([event, NSDate().timeIntervalSince1970 ])
+                var updatedFeed = newsfeed?.adding([event, NSDate().timeIntervalSince1970, ownID ])
                 
                 if updatedFeed == nil{
                     print("Creating feed for ", friend.name)
-                    updatedFeed = [ [event, NSDate().timeIntervalSince1970] ]
+                    updatedFeed = [ [event, NSDate().timeIntervalSince1970], ownID ]
                 }
                 self.ref.child("newsfeed").child(idString).setValue(updatedFeed)
                     // ...
