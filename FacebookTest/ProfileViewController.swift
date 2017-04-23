@@ -273,6 +273,8 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
                         //name
                         self.nameField.text = childDict["name"] as? String ?? "Mr. Incredible"
                         
+                        //work
+                        self.workField.text = childDict["work"] as? String ?? "Superhero Inc."
                         
                         
                         //profile image
