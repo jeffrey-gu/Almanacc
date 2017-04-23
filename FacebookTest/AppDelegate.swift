@@ -13,6 +13,8 @@ import FacebookLogin
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import GoogleMaps
+import GooglePlaces
 
 import GooglePlaces
 import GoogleMaps
@@ -38,6 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSPlacesClient.provideAPIKey("AIzaSyDAK4qCpsSG-sn32XyT7M2GHeH3sKLaMnc")
         FIRApp.configure()
+        
+        GMSServices.provideAPIKey("AIzaSyDAK4qCpsSG-sn32XyT7M2GHeH3sKLaMnc")
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyDAK4qCpsSG-sn32XyT7M2GHeH3sKLaMnc")
+        
+        
         return true
     }
     

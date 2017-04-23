@@ -52,19 +52,17 @@ class ViewController: UIViewController, LoginButtonDelegate {
                     return
                 }
             }
-//            facebookLogin()
+            setUserInfo()
             
             findFriends()
             // push tab view controller
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            guard let controller = storyboard?.instantiateViewController(withIdentifier: ProfileViewController.storyboardIdentifier) as? ProfileViewController else { fatalError("Unable to instantiate an ProfileViewController from the storyboard") }
         }
     }
 
-    func facebookLogin() {
+    func setUserInfo() {
         if let accessToken = AccessToken.current {
-            print("accessing user info")
-            let params = ["fields":"name,email"]
+            let params = ["fields":"id,name,email"]
             let graphRequest = GraphRequest(graphPath: "me", parameters: params)
             graphRequest.start { (urlResponse, requestResult) in
                 switch requestResult {
@@ -72,20 +70,14 @@ class ViewController: UIViewController, LoginButtonDelegate {
                     print(error)
                 case .success(let graphResponse):
                     if let responseDictionary = graphResponse.dictionaryValue {
-                       // UserDefaults.standard.set(responseDictionary, forKey: "userInfo")
-                        
-                        
-                      
-                        
-                        
+                        UserDefaults.standard.set(responseDictionary, forKey: "userInfo")
                     }
                 }
             }
         } else {
-            print("failed to access user info")
+            print ("failed to access user info")
         }
     }
-
 
 }
 

@@ -10,14 +10,14 @@
 
 import UIKit
 
-protocol LocateOnTheMap{
-    func locateWithLongitude(_ lon:Double, andLatitude lat:Double, andTitle title: String)
+protocol LocationDelegate {
+    func updateLocation(title: String)
 }
 
-class SearchResultsController: UITableViewController {
+class LocationSearchResultsController: UITableViewController {
     
     var searchResults: [String]!
-    var delegate: LocateOnTheMap!
+    var delegate: LocationDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,14 +67,13 @@ class SearchResultsController: UITableViewController {
             
             do {
                 if data != nil{
-                    let dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as! NSDictionary
+//                    let dic = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as! NSDictionary
                     
-                    let lat =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lat")) as! Double
-                    
-                    let lon =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lng")) as! Double
+//                    let lat =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lat")) as! Double
+//                    
+//                    let lon =   (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lng")) as! Double
                     // 4
-                    self.delegate.locateWithLongitude(lon, andLatitude: lat, andTitle: self.searchResults[indexPath.row])
-                }
+                    self.delegate.updateLocation(title: self.searchResults[indexPath.row])                }
                 
             }catch {
                 print("Error")
