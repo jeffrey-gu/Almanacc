@@ -122,8 +122,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workplace:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CX5-Me-Rh5">
+                                <rect key="frame" x="16" y="264" width="161" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDW-hK-DMg">
-                                <rect key="frame" x="16" y="281" width="161" height="30"/>
+                                <rect key="frame" x="16" y="337" width="161" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="View Profile"/>
@@ -138,6 +145,7 @@
                         <outlet property="almaMaterLabel" destination="qjN-vV-Nou" id="d4X-Dp-lxw"/>
                         <outlet property="locationLabel" destination="WrE-fC-y73" id="7i1-70-X07"/>
                         <outlet property="nameLabel" destination="XEI-pC-b5E" id="lxs-Cw-ffH"/>
+                        <outlet property="workplaceLabel" destination="CX5-Me-Rh5" id="8qA-cc-MgG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Swe-zK-uZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,7 +296,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3sf-JF-IFE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 2" id="xyi-6W-Fqp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MEO-qS-xPB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MEO-qS-xPB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -17,18 +17,21 @@ class FriendProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var almaMaterLabel: UILabel!
+    @IBOutlet weak var workplaceLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if friendID != nil {
             let friendData = ref.child("users").child(friendID!)
-            print(friendData)
+            friendData.observeSingleEvent(of: .value, with: { (snapshot) in
+                let friendDataDictionary = snapshot.value as! NSDictionary
+                self.nameLabel.text = friendDataDictionary["name"] as? String
+                self.locationLabel.text = friendDataDictionary["location"] as? String
+                self.almaMaterLabel.text = friendDataDictionary["education"] as? String
+                self.workplaceLabel.text = friendDataDictionary["work"] as? String
+                
+            })
             
-            
-//            nameLabel.text = friendData
-//            locationLabel.text = friendData.value(forKey: "location") as! String
-//            almaMaterLabel.text = friendData.value(forKey: "education") as! String
-            //todo: add image
             
         } else {
             print("friendID was not successfully pushed")
@@ -37,7 +40,8 @@ class FriendProfileViewController: UIViewController {
     }
     
     @IBAction func pressedViewProfile(_ sender: UIButton) {
-        
+        print("url http://facebook.com/\(friendID!)")
+        UIApplication.shared.open(URL(string: "http://facebook.com/\(friendID!)")!)
     }
 
     @IBAction func pressedBack(_ sender: UIButton) {
