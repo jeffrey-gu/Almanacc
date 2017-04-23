@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ect-TR-YhW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3JE-xp-hXZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,10 +31,10 @@
             </objects>
             <point key="canvasLocation" x="-1311" y="-8"/>
         </scene>
-        <!--Location View Controller-->
+        <!--Head View Controller-->
         <scene sceneID="t69-Y4-gWT">
             <objects>
-                <viewController id="MyI-09-yHz" customClass="LocationViewController" sceneMemberID="viewController">
+                <viewController id="MyI-09-yHz" customClass="HeadViewController" customModule="FacebookTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hoM-RT-KWV"/>
                         <viewControllerLayoutGuide type="bottom" id="shY-TU-Pud"/>
@@ -47,10 +47,13 @@
                     <navigationItem key="navigationItem" id="Irc-oy-c2t">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Mzc-S0-njc">
                             <connections>
-                                <action selector="openSearchAddress:" destination="MyI-09-yHz" id="MnF-h0-bhG"/>
+                                <action selector="searchWithAddress:" destination="MyI-09-yHz" id="cs0-w7-FqU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="googleMapsContainer" destination="WDR-NI-FUr" id="dZn-dm-nPu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLy-SB-UCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

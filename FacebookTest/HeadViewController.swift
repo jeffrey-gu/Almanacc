@@ -40,7 +40,8 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
     }
     
     
-    @IBOutlet weak var googleMapsContainer: UIView!
+    @IBOutlet var googleMapsContainer: UIView!
+   
     
     var googleMapsView: GMSMapView!
     var searchResultController: SearchResultsController!
