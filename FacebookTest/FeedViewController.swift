@@ -47,7 +47,7 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "M/d/yy, H:mm"
                     let dateString = dateFormatter.string(from: date as Date)
-                    let statusTime = [status[0], dateString]
+                    let statusTime = [status[0], dateString, status[2]] //string, datetime, id
                     self.theData.add(anObject: statusTime)
                     self.tableView.reloadData()
                 }
@@ -99,6 +99,25 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Perform segue
+        performSegue(withIdentifier: "FriendProfileView", sender: self)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FriendProfileView" {
+            if let indexPath = tableView?.indexPathForSelectedRow {
+                
+                let destination = segue.destination as! FriendProfileViewController
+                print("the Data is \(theData)")
+                
+                let specificData = theData[indexPath.row] as! NSArray
+                destination.friendID = specificData[2] as? String
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
