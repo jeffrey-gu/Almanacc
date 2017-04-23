@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -62,7 +62,6 @@
         <!--Feed View Controller-->
         <scene sceneID="lbF-N3-zjb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CxN-TC-kEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="8xG-L2-Tfv" userLabel="Feed View Controller" customClass="FeedViewController" customModule="FacebookTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Aoy-F6-efl"/>
@@ -75,6 +74,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" id="G5z-FJ-BbQ"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CxN-TC-kEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="96.799999999999997" y="1063.7181409295354"/>
         </scene>
@@ -102,13 +102,6 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xvm-hT-qdk">
                                 <rect key="frame" x="59" y="450" width="257" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KSO-HL-4Nc">
-                                <rect key="frame" x="224" y="97" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -172,6 +165,13 @@
                                     <action selector="inviteFriends:" destination="eus-TP-kCb" eventType="touchUpInside" id="4Z3-nn-8Dz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WG6-o2-LoS">
+                                <rect key="frame" x="224" y="74" width="135" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -186,7 +186,7 @@
                         <outlet property="educationField" destination="Qv7-8Z-kJ5" id="COe-cR-SpN"/>
                         <outlet property="jobEditButton" destination="QdD-0p-TOt" id="iK4-fl-ofV"/>
                         <outlet property="locEditButton" destination="5dl-T2-m8x" id="hcL-VE-fL3"/>
-                        <outlet property="locationField" destination="KSO-HL-4Nc" id="3Lh-30-jQE"/>
+                        <outlet property="locationField" destination="WG6-o2-LoS" id="kY1-5G-mi8"/>
                         <outlet property="nameField" destination="Ghf-RE-c4U" id="Ffj-0f-N7F"/>
                         <outlet property="profileView" destination="Zfh-Ht-kdo" id="KAS-fr-GbC"/>
                         <outlet property="uniEditButton" destination="Vxe-V1-fQW" id="QSI-Wh-iXt"/>

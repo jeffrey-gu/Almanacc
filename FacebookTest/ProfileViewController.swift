@@ -12,16 +12,19 @@ import FacebookCore
 import FBSDKCoreKit
 import FBSDKShareKit
 import Firebase
+import GoogleMaps
+import GooglePlaces
 
 //http://stackoverflow.com/questions/39325970/how-to-access-profile-picture-with-facebook-api-in-swift-3
 //http://stackoverflow.com/questions/39813497/swift-3-display-image-from-url
 
-class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
+class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMSAutocompleteFetcherDelegate, LocationDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var profileView: UIImageView!
     @IBOutlet weak var educationField: UITextField!
     @IBOutlet weak var workField: UITextField!
-    @IBOutlet weak var locationField: UITextField!
+    
+    @IBOutlet weak var locationField: UILabel!
     @IBOutlet weak var nameField: UILabel!
     
     @IBOutlet weak var locEditButton: UIButton!
@@ -29,6 +32,10 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
     @IBOutlet weak var jobEditButton: UIButton!
     
     static let storyboardIdentifier = "ProfileViewController"
+    
+    var searchResultController: LocationSearchResultsController!
+    var resultsArray = [String]()
+    var gmsFetcher: GMSAutocompleteFetcher!
     
     let storageRef = FIRStorage.storage().reference()
     let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
@@ -42,30 +49,48 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
         DispatchQueue.main.async {
             self.getProfileInfo()
         }
-//        self.getProfilePicture()
     }
     
-    @IBAction func editLocation(_ sender: UIButton) {
-        let editStatus = !locationField.isUserInteractionEnabled
-        locationField.isUserInteractionEnabled = editStatus
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
-        if (editStatus) {
-            // if enabled
-            locEditButton.setImage(#imageLiteral(resourceName: "check-icon"), for: .normal)
-            locationField.becomeFirstResponder()
-            //TODO: source Google Maps API for location search?
-        }
-        else {
-            locEditButton.setImage(#imageLiteral(resourceName: "pen-icon"), for: .normal)
-            self.view.becomeFirstResponder()
-            
-            let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
-            if let id = userInfo["id"] {
-                self.ref.child("users").child(id as! String).updateChildValues(["location": self.locationField.text])
-                let eventString = self.nameField.text! + " moved to " + self.locationField.text!
-                addToFriendNewsFeed(event: eventString)
+        searchResultController = LocationSearchResultsController()
+        searchResultController.delegate = self
+        gmsFetcher = GMSAutocompleteFetcher()
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        gmsFetcher.autocompleteFilter = filter
+        gmsFetcher.delegate = self
+        
+    }
+    
+    func updateLocation(title: String) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
+                if let id = userInfo["id"] {
+                    self.ref.child("users").child(id as! String).updateChildValues(["location": self.locationField.text ?? ""])
+                    let eventString = self.nameField.text! + " moved to " + self.locationField.text!
+                    self.addToFriendNewsFeed(event: eventString)
+                }
             }
         }
+        self.locationField.text = title
+//        self.locationField.setNeedsDisplay()
+        
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.resultsArray.removeAll()
+        gmsFetcher?.sourceTextHasChanged(searchText)
+    }
+        
+    
+    @IBAction func editLocation(_ sender: UIButton) {
+        let searchController = UISearchController(searchResultsController: searchResultController)
+        searchController.searchBar.delegate = self
+        self.present(searchController, animated:true, completion: nil)
     }
     @IBAction func editUniversity(_ sender: UIButton) {
         let editStatus = !educationField.isUserInteractionEnabled
@@ -353,4 +378,24 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
     public func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: Error!){
         print("Error in invite \(error)")
     }
+    
+    public func didFailAutocompleteWithError(_ error: Error) {
+    }
+    
+    /**
+     * Called when autocomplete predictions are available.
+     * @param predictions an array of GMSAutocompletePrediction objects.
+     */
+    public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
+        
+        for prediction in predictions {
+            
+            if let prediction = prediction as GMSAutocompletePrediction!{
+                self.resultsArray.append(prediction.attributedFullText.string)
+            }
+        }
+        self.searchResultController.reloadDataWithArray(self.resultsArray)
+        print(resultsArray)
+    }
+
 }
