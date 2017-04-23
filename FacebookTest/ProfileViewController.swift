@@ -303,18 +303,13 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
     
     
     public func addToFriendNewsFeed(event: String){
-        print("Event string: ", event)
         for friend in friendsArray{
             let idString = String(friend.id!)
-            print("id string: ")
-            print(idString)
             
             ref.child("newsfeed").child(idString).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
-                print(snapshot.value)
                    
                 let newsfeed = snapshot.value as? NSArray
-                dump(newsfeed)
                 
                 var updatedFeed = newsfeed?.adding([event, NSDate().timeIntervalSince1970 ])
                 
@@ -322,8 +317,6 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate {
                     print("Creating feed for ", friend.name)
                     updatedFeed = [ [event, NSDate().timeIntervalSince1970] ]
                 }
-                print("Updated feed")
-                dump(updatedFeed)
                 self.ref.child("newsfeed").child(idString).setValue(updatedFeed)
                     // ...
                 }) { (error) in

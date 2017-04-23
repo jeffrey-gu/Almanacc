@@ -35,27 +35,11 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
     
     private func fetchDataForTableView() {
         let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
-        print("foobar")
-        print(userInfo["id"])
         if let keyExists = userInfo["id"] {
-//            self.ref.child("newsfeed").observeSingleEvent(of: .value, with: { (snapshot) in
-//                let enumerator = snapshot.children
-//                while let child = enumerator.nextObject() as? FIRDataSnapshot {
-//                    let childDict = child.value as? [String:Any] ?? [String:Any]()
-//                    dump(childDict)
-//                    print("??")
-//                    print(childDict)
-//                }
-//            })
-//            print("After query")
-            let idString = userInfo["id"] as! String
-            print(idString)
+            let idString = keyExists as! String
             ref.child("newsfeed").child(idString).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
-                print(snapshot.value)
-                
                 let newsfeed = snapshot.value as? NSArray
-                dump(newsfeed)
 
                 let enumerator = newsfeed?.reverseObjectEnumerator()
                 while let status = enumerator?.nextObject() as? NSArray{
@@ -66,13 +50,8 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
                     let statusTime = [status[0], dateString]
                     self.theData.add(anObject: statusTime)
                     self.tableView.reloadData()
-                    print(status[0])
-                    print(status[1])
-                    print(dateString)
                 }
-                print("foobar")
-                
-                // ...
+
             }) { (error) in
                 print(error.localizedDescription)
             }
@@ -112,8 +91,6 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
         let event = theData[indexPath.row] as? NSArray
         cell.textLabel!.text = event?[0] as? String
         cell.detailTextLabel!.text = event?[1] as? String
-        print(cell.detailTextLabel!.text)
-        print(friendsArray)
         return cell
     }
     
