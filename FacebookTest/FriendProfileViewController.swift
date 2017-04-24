@@ -26,23 +26,26 @@ class FriendProfileViewController: UIViewController {
         if friendID != nil {
             let friendData = ref.child("users").child(friendID!)
             friendData.observeSingleEvent(of: .value, with: { (snapshot) in
-                let friendDataDictionary = snapshot.value as! NSDictionary
-                self.nameLabel.text = friendDataDictionary["name"] as? String
-                self.locationLabel.text = friendDataDictionary["location"] as? String
-                self.almaMaterLabel.text = friendDataDictionary["education"] as? String
-                self.workplaceLabel.text = friendDataDictionary["work"] as? String
-                
-                //profile image
-                if let pictureURL = friendDataDictionary["picture"] as? String {
-                    let filePath = "\(self.friendID!)/\("userPhoto")"
-                    print(filePath)
-                    self.storageRef.child(filePath).data(withMaxSize: 10*1024*1024, completion: { (data, error) in
-                        print(data)
-                        let userPhoto = UIImage(data: data!)
-                        self.profileImage.image = userPhoto
-                        print("pulled profile pic locally")
-                    })
+                if let friendDataDictionary = snapshot.value as? NSDictionary {
+                    self.nameLabel.text = friendDataDictionary["name"] as? String
+                    self.locationLabel.text = friendDataDictionary["location"] as? String
+                    self.almaMaterLabel.text = friendDataDictionary["education"] as? String
+                    self.workplaceLabel.text = friendDataDictionary["work"] as? String
+                    
+                    //profile image
+                    if let pictureURL = friendDataDictionary["picture"] as? String {
+                        let filePath = "\(self.friendID!)/\("userPhoto")"
+                        print(filePath)
+                        self.storageRef.child(filePath).data(withMaxSize: 10*1024*1024, completion: { (data, error) in
+                            let userPhoto = UIImage(data: data!)
+                            self.profileImage.image = userPhoto
+                            print("pulled profile pic locally")
+                        })
+                    }
+                } else {
+                    self.nameLabel.text = "Error retrieving data!"
                 }
+                
             })
             
             

@@ -66,6 +66,7 @@
                     <connections>
                         <outlet property="googleMapsContainer" destination="SO8-c5-d6x" id="3J6-ym-kzs"/>
                         <outlet property="tableView" destination="pVx-ov-hkW" id="lBl-K5-3ge"/>
+                        <segue destination="zfY-Fa-wPH" kind="presentation" identifier="FriendProfileView2" id="Nl0-zJ-mh7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLy-SB-UCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -332,7 +333,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3sf-JF-IFE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 2" id="xyi-6W-Fqp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MEO-qS-xPB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MEO-qS-xPB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -350,4 +351,7 @@
         <image name="pen-icon" width="30" height="30"/>
         <image name="smile-tabicon" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Nl0-zJ-mh7"/>
+    </inferredMetricsTieBreakers>
 </document>

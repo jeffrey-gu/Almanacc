@@ -111,7 +111,7 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
      - parameter title: title of address location
      */
     func locateWithLongitude(_ lon: Double, andLatitude lat: Double, andTitle title: String) {
-        
+        userDet = []
         self.ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
             let enumerator = snapshot.children
             while let child = enumerator.nextObject() as? FIRDataSnapshot {
@@ -120,15 +120,18 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
                 let id = childDict["id"] as? String ?? "??"
                
     
-                let name = childDict["name"]
+                let name = childDict["name"] as! String!
               
-                let location = childDict["location"]
+                let location = childDict["location"] as! String!
+                
+                if location == title{
               
                 
                 self.userDet.append(users(name: name as! String!, location: location as! String!, id: id as String!))
                     //print("this is \(self.userDet)")
                 
                 }
+            }
                 self.updateTable()
                 })
         
@@ -181,7 +184,27 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
     
     func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath){
+        //Perform segue
+        performSegue(withIdentifier: "FriendProfileView2", sender: self)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FriendProfileView2" {
+            if let indexPath = tableView?.indexPathForSelectedRow {
+                
+                let destination = segue.destination as! FriendProfileViewController
+                let userID = userDet[indexPath.row].id
+                destination.friendID = userID
+                
+                
+//                print("the Data is \(theData)")
+//                
+//                let specificData = theData[indexPath.row] as! NSArray
+//                destination.friendID = specificData[2] as? String
+            }
+        }
     }
     
     
