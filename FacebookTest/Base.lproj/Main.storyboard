@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,6 +42,18 @@
                     <view key="view" contentMode="scaleToFill" id="WDR-NI-FUr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-c5-d6x">
+                                <rect key="frame" x="0.0" y="64" width="375" height="344"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pVx-ov-hkW">
+                                <rect key="frame" x="0.0" y="416" width="375" height="202"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yWQ-Qz-XYv">
@@ -52,12 +64,31 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="googleMapsContainer" destination="WDR-NI-FUr" id="F1U-TP-kCW"/>
+                        <outlet property="googleMapsContainer" destination="SO8-c5-d6x" id="3J6-ym-kzs"/>
+                        <outlet property="tableView" destination="pVx-ov-hkW" id="lBl-K5-3ge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLy-SB-UCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1372" y="321.58920539730138"/>
+        </scene>
+        <!--Location View Controller2-->
+        <scene sceneID="qBg-Rh-vUT">
+            <objects>
+                <viewController storyboardIdentifier="LocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pub-aT-O1o" customClass="LocationViewController2" customModule="FacebookTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AFV-Kx-ER7"/>
+                        <viewControllerLayoutGuide type="bottom" id="XSl-Hs-O74"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="krf-Xl-Im0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ZP-Db-x16" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2152" y="325"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="lbF-N3-zjb">

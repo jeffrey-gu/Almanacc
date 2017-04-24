@@ -9,21 +9,35 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import Firebase
+import FirebaseDatabase
+
+struct users{
+   let name: String!
+   let location: String!
+   let id: String!
+}
 
 
-
-class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate {
+class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMap,GMSAutocompleteFetcherDelegate, GMSMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     /**
      * Called when an autocomplete request returns an error.
      * @param error the error that was received.
      */
+    
+    @IBOutlet var tableView: UITableView!
+    
+    var userDet = [users]()
+    
+     let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
+    
     public func didFailAutocompleteWithError(_ error: Error) {
         //        resultText?.text = error.localizedDescription
     }
     
     /**
      * Called when autocomplete predictions are available.
-     * @param predictions an array of GMSAutocompletePrediction objects.
+     * @param predictions an array ofGMSAutocompletePrediction objects.
      */
     public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         //self.resultsArray.count + 1
@@ -61,6 +75,11 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
         searchResultController = SearchResultsController()
         searchResultController.delegate = self
         gmsFetcher = GMSAutocompleteFetcher()
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        gmsFetcher.autocompleteFilter = filter
+        
+        
         gmsFetcher.delegate = self
         
     }
@@ -91,8 +110,37 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
      */
     func locateWithLongitude(_ lon: Double, andLatitude lat: Double, andTitle title: String) {
         
+        self.ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            let enumerator = snapshot.children
+            while let child = enumerator.nextObject() as? FIRDataSnapshot {
+                let childDict = child.value as? [String:Any] ?? [String:Any]()
+                
+                let id = childDict["id"] as? String ?? "??"
+               
+    
+                let name = childDict["name"]
+              
+                let location = childDict["location"]
+              
+                
+                self.userDet.append(users(name: name as! String!, location: location as! String!, id: id as String!))
+                    print("this is \(self.userDet)")
+                
+                }
+                self.updateTable()
+                })
+            
+        
+     
+            
+          //  print("this is \(userDet)")
+            
+            
+            
         
         
+    
+    
         DispatchQueue.main.async { () -> Void in
             
             let position = CLLocationCoordinate2DMake(lat, lon)
@@ -104,9 +152,44 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
             marker.title = "Address : \(title)"
             marker.map = self.googleMapsView
             
+            
         }
         
     }
+    
+    func updateTable(){
+        self.tableView.reloadData()
+    }
+    
+    
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.userDet.count
+    }
+    
+    
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
+        
+        cell.textLabel?.text = self.userDet[indexPath.row].name
+        return cell
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath){
+    
+    }
+    
+    
     
     /**
      Searchbar when text change
@@ -146,6 +229,7 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
     }
     
     
+
     
     
     override func didReceiveMemoryWarning() {

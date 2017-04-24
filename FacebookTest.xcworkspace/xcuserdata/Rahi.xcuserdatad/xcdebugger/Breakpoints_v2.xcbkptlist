@@ -70,12 +70,218 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FacebookTest/LocationViewController.swift"
-            timestampString = "514605038.118995"
+            timestampString = "514694131.419369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "reloadDataWithArray(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FacebookTest/LocationViewController.swift"
+            timestampString = "514694131.419369"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "SearchResultsController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FacebookTest.SearchResultsController.ref.getter : __ObjC.FIRDatabaseReference"
+                  moduleName = "FacebookTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Rahi/Documents/Almanacc/FacebookTest/LocationViewController.swift"
+                  timestampString = "514621244.326645"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FacebookTest.SearchResultsController.init (style : __C.UITableViewStyle) -&gt; FacebookTest.SearchResultsController"
+                  moduleName = "FacebookTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Rahi/Documents/Almanacc/FacebookTest/LocationViewController.swift"
+                  timestampString = "514621244.32894"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FacebookTest.SearchResultsController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; FacebookTest.SearchResultsController"
+                  moduleName = "FacebookTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Rahi/Documents/Almanacc/FacebookTest/LocationViewController.swift"
+                  timestampString = "514621244.330281"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FacebookTest.SearchResultsController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;FacebookTest.SearchResultsController&gt;"
+                  moduleName = "FacebookTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Rahi/Documents/Almanacc/FacebookTest/LocationViewController.swift"
+                  timestampString = "514621244.331628"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FacebookTest/HeadViewController.swift"
+            timestampString = "514698356.426878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "locateWithLongitude(_:andLatitude:andTitle:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FacebookTest/HeadViewController.swift"
+            timestampString = "514698356.426878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "locateWithLongitude(_:andLatitude:andTitle:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FacebookTest.HeadViewController.locateWithLongitude (Swift.Double, andLatitude : Swift.Double, andTitle : Swift.String) -&gt; ()"
+                  moduleName = "FacebookTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Rahi/Documents/Almanacc/FacebookTest/HeadViewController.swift"
+                  timestampString = "514694050.791126"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "1198">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FacebookTest.HeadViewController.(locateWithLongitude (Swift.Double, andLatitude : Swift.Double, andTitle : Swift.String) -&gt; ()).(closure #2)"
+                  moduleName = "FacebookTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Rahi/Documents/Almanacc/FacebookTest/HeadViewController.swift"
+                  timestampString = "514694050.793199"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FacebookTest/HeadViewController.swift"
+            timestampString = "514698356.426878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "locateWithLongitude(_:andLatitude:andTitle:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FacebookTest/HeadViewController.swift"
+            timestampString = "514698356.426878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "locateWithLongitude(_:andLatitude:andTitle:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FacebookTest/HeadViewController.swift"
+            timestampString = "514698356.426878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "locateWithLongitude(_:andLatitude:andTitle:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FacebookTest/HeadViewController.swift"
+            timestampString = "514698356.426878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "locateWithLongitude(_:andLatitude:andTitle:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
