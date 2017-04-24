@@ -37,7 +37,7 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
     
     /**
      * Called when autocomplete predictions are available.
-     * @param predictions an array ofGMSAutocompletePrediction objects.
+     * @param predictions an array of GMSAutocompletePrediction objects.
      */
     public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         //self.resultsArray.count + 1

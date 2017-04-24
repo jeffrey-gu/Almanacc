@@ -72,24 +72,9 @@ class SearchResultsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath){
-        
-        
-                  
-      
-        
-        
-        //setLocation?.location = searchResults[indexPath.row]
-        
-    // print("this is \(userDet)")
-        
- 
-        
-        
-
-       // 1
-      self.dismiss(animated: true, completion: nil)
-        
-                // 2
+        // 1
+        self.dismiss(animated: true, completion: nil)
+        // 2
         let urlpath = "https://maps.googleapis.com/maps/api/geocode/json?address=\(self.searchResults[indexPath.row])&sensor=false".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         let url = URL(string: urlpath!)
@@ -114,14 +99,6 @@ class SearchResultsController: UITableViewController {
         }
         // 5
         task.resume()
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     
