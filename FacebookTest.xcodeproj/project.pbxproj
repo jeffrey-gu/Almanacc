@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0965FA211EAD5F0800899AED /* LocationViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965FA201EAD5F0800899AED /* LocationViewController2.swift */; };
+		09B8A00E1EAD7D96009D0E3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09B8A00C1EAD7D96009D0E3B /* Main.storyboard */; };
 		0B65BF281E9B275200EEF571 /* FriendsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B65BF271E9B275200EEF571 /* FriendsUtils.swift */; };
 		0B65BF2C1E9DD33800EEF571 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B65BF2B1E9DD33800EEF571 /* SwiftyJSON.swift */; };
 		0B65BF301EA7FF1800EEF571 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B65BF2F1EA7FF1800EEF571 /* InviteFriendsViewController.swift */; };
@@ -20,7 +22,6 @@
 		24B3CF1C1EAC32850097D8AB /* LocationEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B3CF1B1EAC32850097D8AB /* LocationEditViewController.swift */; };
 		24C024031E907F8D003147DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024021E907F8D003147DE /* AppDelegate.swift */; };
 		24C024051E907F8D003147DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024041E907F8D003147DE /* ViewController.swift */; };
-		24C024081E907F8D003147DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C024061E907F8D003147DE /* Main.storyboard */; };
 		24C0240A1E907F8D003147DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C024091E907F8D003147DE /* Assets.xcassets */; };
 		24C0240D1E907F8D003147DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C0240B1E907F8D003147DE /* LaunchScreen.storyboard */; };
 		24C024181E907F8D003147DE /* FacebookTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C024171E907F8D003147DE /* FacebookTestTests.swift */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0965FA201EAD5F0800899AED /* LocationViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController2.swift; sourceTree = "<group>"; };
+		09B8A00D1EAD7D96009D0E3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B65BF271E9B275200EEF571 /* FriendsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsUtils.swift; sourceTree = "<group>"; };
 		0B65BF2B1E9DD33800EEF571 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		0B65BF2F1EA7FF1800EEF571 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
@@ -60,12 +63,11 @@
 		24A33B411E9F0598000B4BF2 /* FeedEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEvent.swift; sourceTree = "<group>"; };
 		24A33B431EA45013000B4BF2 /* FeedViewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewCollectionCell.swift; sourceTree = "<group>"; };
 		24A33B451EA46057000B4BF2 /* HeadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadViewController.swift; sourceTree = "<group>"; };
-		24A33B471EA4607E000B4BF2 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		24A33B471EA4607E000B4BF2 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		24B3CF1B1EAC32850097D8AB /* LocationEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationEditViewController.swift; sourceTree = "<group>"; };
 		24C023FF1E907F8C003147DE /* FacebookTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C024021E907F8D003147DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C024041E907F8D003147DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		24C024071E907F8D003147DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24C024091E907F8D003147DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C0240C1E907F8D003147DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24C0240E1E907F8D003147DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,8 +139,10 @@
 				24C024321E9AE28D003147DE /* ProfileViewController.swift */,
 				24A33B471EA4607E000B4BF2 /* LocationViewController.swift */,
 				24C024041E907F8D003147DE /* ViewController.swift */,
+				0965FA201EAD5F0800899AED /* LocationViewController2.swift */,
 				24A33B451EA46057000B4BF2 /* HeadViewController.swift */,
 				24A33B3D1E9F0145000B4BF2 /* FeedViewController.swift */,
+				09B8A00C1EAD7D96009D0E3B /* Main.storyboard */,
 				0B65BF2F1EA7FF1800EEF571 /* InviteFriendsViewController.swift */,
 				24B3CF1B1EAC32850097D8AB /* LocationEditViewController.swift */,
 				0BC391EC1EAC6C0900373F32 /* FriendProfileViewController.swift */,
@@ -187,7 +191,6 @@
 				24A33B3F1E9F0559000B4BF2 /* Controllers */,
 				8808341F1E9B221C00D56A64 /* GoogleService-Info.plist */,
 				24C024021E907F8D003147DE /* AppDelegate.swift */,
-				24C024061E907F8D003147DE /* Main.storyboard */,
 				24C024091E907F8D003147DE /* Assets.xcassets */,
 				24C0240B1E907F8D003147DE /* LaunchScreen.storyboard */,
 				24C0240E1E907F8D003147DE /* Info.plist */,
@@ -344,7 +347,7 @@
 				24C0240D1E907F8D003147DE /* LaunchScreen.storyboard in Resources */,
 				880834201E9B221C00D56A64 /* GoogleService-Info.plist in Resources */,
 				24C0240A1E907F8D003147DE /* Assets.xcassets in Resources */,
-				24C024081E907F8D003147DE /* Main.storyboard in Resources */,
+				09B8A00E1EAD7D96009D0E3B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +515,7 @@
 				0BC391ED1EAC6C0A00373F32 /* FriendProfileViewController.swift in Sources */,
 				24A33B421E9F0598000B4BF2 /* FeedEvent.swift in Sources */,
 				24A33B441EA45013000B4BF2 /* FeedViewCollectionCell.swift in Sources */,
+				0965FA211EAD5F0800899AED /* LocationViewController2.swift in Sources */,
 				0B65BF281E9B275200EEF571 /* FriendsUtils.swift in Sources */,
 				24A33B481EA4607E000B4BF2 /* LocationViewController.swift in Sources */,
 				0B65BF331EAC075700EEF571 /* NotifcationsUtils.swift in Sources */,
@@ -556,10 +560,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		24C024061E907F8D003147DE /* Main.storyboard */ = {
+		09B8A00C1EAD7D96009D0E3B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				24C024071E907F8D003147DE /* Base */,
+				09B8A00D1EAD7D96009D0E3B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -13,11 +13,13 @@ class FriendProfileViewController: UIViewController {
     
     var friendID: String?
     let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
+    let storageRef = FIRStorage.storage().reference()
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var almaMaterLabel: UILabel!
     @IBOutlet weak var workplaceLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,17 @@ class FriendProfileViewController: UIViewController {
                 self.almaMaterLabel.text = friendDataDictionary["education"] as? String
                 self.workplaceLabel.text = friendDataDictionary["work"] as? String
                 
+                //profile image
+                if let pictureURL = friendDataDictionary["picture"] as? String {
+                    let filePath = "\(self.friendID!)/\("userPhoto")"
+                    print(filePath)
+                    self.storageRef.child(filePath).data(withMaxSize: 10*1024*1024, completion: { (data, error) in
+                        print(data)
+                        let userPhoto = UIImage(data: data!)
+                        self.profileImage.image = userPhoto
+                        print("pulled profile pic locally")
+                    })
+                }
             })
             
             

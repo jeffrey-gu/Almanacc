@@ -9,21 +9,38 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+
+
+
 
 protocol LocateOnTheMap{
     func locateWithLongitude(_ lon:Double, andLatitude lat:Double, andTitle title: String)
 }
 
+
+
 class SearchResultsController: UITableViewController {
     
+    let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
     var searchResults: [String]!
     var delegate: LocateOnTheMap!
+    
+    var nameArray: [String]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchResults = Array()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         
+        
+        
+        
+        
+       
+       
     }
     
     override func didReceiveMemoryWarning() {
