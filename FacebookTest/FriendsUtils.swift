@@ -69,6 +69,10 @@ func findFriends(){
                     let hometown: String? = jsonData[i]["hometown"]["name"].string
                     let email: String? = jsonData[i]["email"].string
                     friendsArray.append(Friend(id: id!, firstName: firstName, lastName: lastName, middleName: middleName, name: name, email: email, picture: picture, location: location, education: education, hometown: hometown))
+                    
+                    
+                    
+                    
                 }
             }
         }

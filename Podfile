@@ -15,6 +15,8 @@ target 'FacebookTest' do
   pod 'Firebase/Database'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'GooglePlaces’
+  pod ‘GoogleMaps’
   target 'FacebookTestTests' do
     inherit! :search_paths
     # Pods for testing
