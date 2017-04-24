@@ -85,10 +85,6 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell =  UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-//        var event = theData["0"]
-//        cell.textLabel!.text = event["0"]
-//        cell.detailTextLabel?.text = event["1"]
-            //print(indexPath.row)
         let event = theData[indexPath.row] as? NSArray
         cell.textLabel!.text = event?[0] as? String
         cell.detailTextLabel!.text = event?[1] as? String
@@ -138,6 +134,9 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
         fetchDataForTableView()
         //self.tableView.reloadData()
     }
+    
+    
+    
     
     
     
