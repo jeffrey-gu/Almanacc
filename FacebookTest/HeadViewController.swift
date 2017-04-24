@@ -63,7 +63,9 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -124,22 +126,12 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
               
                 
                 self.userDet.append(users(name: name as! String!, location: location as! String!, id: id as String!))
-                    print("this is \(self.userDet)")
+                    //print("this is \(self.userDet)")
                 
                 }
                 self.updateTable()
                 })
-            
         
-     
-            
-          //  print("this is \(userDet)")
-            
-            
-            
-        
-        
-    
     
         DispatchQueue.main.async { () -> Void in
             
@@ -178,7 +170,10 @@ class HeadViewController: UIViewController , UISearchBarDelegate , LocateOnTheMa
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
         
-        cell.textLabel?.text = self.userDet[indexPath.row].name
+        if let cellContents = self.userDet[indexPath.row].name {
+            cell.textLabel?.text = cellContents
+            return cell
+        }
         return cell
     }
     
