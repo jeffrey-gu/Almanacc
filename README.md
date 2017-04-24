@@ -3,10 +3,6 @@ Almanacc is an alumni connection application for IOS. It uses the Facebook API t
 
 In order to test the application, you must be listed as an Application developer, since our app is not in production mode. If you would like to test the app, please contact a member of our team at jessehuang@wustl.edu, rahi.r.shah@wustl.edu, jshieh@wustl.edu, or  jeffreygu@wustl.edu.
 
-## Testing Guide
-
-
-
 ### Feature List
 - Edit basic profile information: Location, Employer, Education
 - Invite friends to use the app. 
