@@ -136,8 +136,8 @@
 			children = (
 				24C024321E9AE28D003147DE /* ProfileViewController.swift */,
 				24A33B471EA4607E000B4BF2 /* LocationViewController.swift */,
-				24A33B451EA46057000B4BF2 /* HeadViewController.swift */,
 				24C024041E907F8D003147DE /* ViewController.swift */,
+				24A33B451EA46057000B4BF2 /* HeadViewController.swift */,
 				24A33B3D1E9F0145000B4BF2 /* FeedViewController.swift */,
 				0B65BF2F1EA7FF1800EEF571 /* InviteFriendsViewController.swift */,
 				24B3CF1B1EAC32850097D8AB /* LocationEditViewController.swift */,
