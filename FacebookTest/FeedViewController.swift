@@ -126,6 +126,9 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
         setupTableView()
         fetchDataForTableView()
     }
+    @IBAction func refresh(_ sender: Any) {
+        fetchDataForTableView()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
