@@ -34,17 +34,15 @@ class FriendProfileViewController: UIViewController {
                 
                 //profile image
                 if let pictureURL = friendDataDictionary["picture"] as? String {
-                    let filePath = "\(self.friendID)/\("userPhoto")"
+                    let filePath = "\(self.friendID!)/\("userPhoto")"
+                    print(filePath)
                     self.storageRef.child(filePath).data(withMaxSize: 10*1024*1024, completion: { (data, error) in
-                        if (error != nil) {
-                            let userPhoto = UIImage(data: data!)
-                            self.profileImage.image = userPhoto
-                            print("pulled profile pic locally")
-                        }
+                        print(data)
+                        let userPhoto = UIImage(data: data!)
+                        self.profileImage.image = userPhoto
+                        print("pulled profile pic locally")
                     })
                 }
-                
-                
             })
             
             
