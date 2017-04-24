@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -104,14 +104,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" image="newsfeed" id="G5z-FJ-BbQ"/>
+                    <navigationItem key="navigationItem" id="xZd-D6-Hym">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="R93-yw-sZV">
+                            <connections>
+                                <action selector="refresh:" destination="8xG-L2-Tfv" id="Sft-Yn-NeQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="zfY-Fa-wPH" kind="presentation" identifier="FriendProfileView" id="myC-QG-VcI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxN-TC-kEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96.799999999999997" y="1063.7181409295354"/>
+            <point key="canvasLocation" x="1036" y="1063.7181409295354"/>
         </scene>
         <!--Friend Profile View Controller-->
         <scene sceneID="Goi-R0-HGH">
@@ -320,7 +326,7 @@
                     <connections>
                         <segue destination="eus-TP-kCb" kind="relationship" relationship="viewControllers" id="kvs-RP-W46"/>
                         <segue destination="3sf-JF-IFE" kind="relationship" relationship="viewControllers" id="7Cq-Di-Zwn"/>
-                        <segue destination="8xG-L2-Tfv" kind="relationship" relationship="viewControllers" id="Car-Kq-iMR"/>
+                        <segue destination="jdK-uO-hWD" kind="relationship" relationship="viewControllers" id="Car-Kq-iMR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pE-MR-dAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -345,6 +351,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J71-PZ-G1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="432.80000000000001" y="321.58920539730138"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="sj7-ls-MAR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jdK-uO-hWD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" image="newsfeed" id="G5z-FJ-BbQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SkT-E8-J3i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8xG-L2-Tfv" kind="relationship" relationship="rootViewController" id="Yvf-Me-y0D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MMc-uf-Eng" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96.799999999999997" y="1063.7181409295354"/>
         </scene>
     </scenes>
     <resources>

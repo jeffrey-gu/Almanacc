@@ -34,6 +34,7 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
     }
     
     private func fetchDataForTableView() {
+        self.theData.removeAllObjects()
         let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
         if let keyExists = userInfo["id"] {
             let idString = keyExists as! String
@@ -125,12 +126,18 @@ class FeedViewController: UIViewController,  UITableViewDataSource,UITableViewDe
         setupTableView()
         fetchDataForTableView()
     }
+    @IBAction func refresh(_ sender: Any) {
+        fetchDataForTableView()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        fetchDataForTableView()
+        //self.tableView.reloadData()
+    }
     
     
     
