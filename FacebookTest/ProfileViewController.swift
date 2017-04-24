@@ -224,6 +224,46 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMS
         }
     }
     
+    func queryLocationData(id:String) {
+        let graphRequest = GraphRequest(graphPath: "/\(id)?fields=location")
+        graphRequest.start { (urlResponse, requestResult) in
+            switch requestResult {
+            case .failed(let error):
+                print(error)
+            case .success(let graphResponse):
+                print("success")
+                if let responseDictionary = graphResponse.dictionaryValue {
+                    dump(responseDictionary)
+                    
+                    let infoBank = responseDictionary["location"] as? [String:Any] ?? [String:Any]()
+                    let country = infoBank["country"] as? String ?? "Mars"
+                    let city = infoBank["city"] as? String ?? "Cityville"
+                    let state = infoBank["state"] as? String ?? ""
+                    
+                    var verifiedLocation:String
+                    if (state.isEmpty) {
+                        verifiedLocation = city + ", " + country
+                    }
+                    else {
+                        verifiedLocation = city + ", " + state + ", " + country
+                    }
+                    
+                    
+                    self.locationField.text = verifiedLocation
+                    
+                    let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:Any] ?? [String:Any]()
+                    if let idString = userInfo["id"] {
+                        
+                        self.ref.child("users").child(idString as! String).updateChildValues(["location": verifiedLocation])
+                    }
+                    
+                    
+                }
+            }
+        }
+
+    }
+    
     func queryFB(flag:Bool) {
         if(!flag) {
             print("pulling profile info from Facebook Graph API")
@@ -245,7 +285,11 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMS
                         self.educationField.text = detailedSchoolDict["name"] as? String ?? "Superhero University"
                         
                         let locationDict = responseDictionary["location"] as? [String:Any] ?? [String:Any]()
-                        self.locationField.text = locationDict["name"] as? String ?? "Cityville"
+                        self.locationField.text = locationDict["name"] as? String ?? "Saint Louis, MO, United States"
+                        
+                        let locationID = locationDict["id"] as? String ?? ""
+                        self.queryLocationData(id: locationID)
+                        
                         
                         //Insert dictionary into Firebase
 //                        let ref = FIRDatabase.database().reference(fromURL: "https://almanaccfb.firebaseio.com/")
@@ -323,6 +367,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, GMS
         }
         else {
             print("id key doesn't exist")
+            
             queryFB(flag: false)
         }
     }
