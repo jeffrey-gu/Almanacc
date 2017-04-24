@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" id="G5z-FJ-BbQ"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="newsfeed" id="G5z-FJ-BbQ"/>
                     <connections>
                         <segue destination="zfY-Fa-wPH" kind="presentation" identifier="FriendProfileView" id="myC-QG-VcI"/>
                     </connections>
@@ -292,7 +292,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="Zfh-Ht-kdo" secondAttribute="leading" id="dga-7p-cJf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title=" You" image="smile-tabicon" id="5g8-A6-0ks"/>
+                    <tabBarItem key="tabBarItem" title="You" image="profile-icon2" id="5g8-A6-0ks"/>
                     <connections>
                         <outlet property="educationField" destination="Qv7-8Z-kJ5" id="COe-cR-SpN"/>
                         <outlet property="jobEditButton" destination="QdD-0p-TOt" id="iK4-fl-ofV"/>
@@ -327,11 +327,11 @@
             </objects>
             <point key="canvasLocation" x="-522" y="-7"/>
         </scene>
-        <!--Item 2-->
+        <!--Search-->
         <scene sceneID="Jao-8T-xvr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3sf-JF-IFE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="xyi-6W-Fqp"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search-icon" id="xyi-6W-Fqp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MEO-qS-xPB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -348,10 +348,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="newsfeed" width="26" height="26"/>
         <image name="pen-icon" width="30" height="30"/>
-        <image name="smile-tabicon" width="25" height="25"/>
+        <image name="profile-icon2" width="26" height="26"/>
+        <image name="search-icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nl0-zJ-mh7"/>
+        <segue reference="myC-QG-VcI"/>
     </inferredMetricsTieBreakers>
 </document>
