@@ -138,6 +138,10 @@
                                     <action selector="pressedViewProfile:" destination="zfY-Fa-wPH" eventType="touchUpInside" id="7ak-zT-hGg"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQP-Um-LTy">
+                                <rect key="frame" x="179" y="76" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -145,6 +149,7 @@
                         <outlet property="almaMaterLabel" destination="qjN-vV-Nou" id="d4X-Dp-lxw"/>
                         <outlet property="locationLabel" destination="WrE-fC-y73" id="7i1-70-X07"/>
                         <outlet property="nameLabel" destination="XEI-pC-b5E" id="lxs-Cw-ffH"/>
+                        <outlet property="profileImage" destination="TQP-Um-LTy" id="ZSY-Z4-PE0"/>
                         <outlet property="workplaceLabel" destination="CX5-Me-Rh5" id="8qA-cc-MgG"/>
                     </connections>
                 </viewController>
